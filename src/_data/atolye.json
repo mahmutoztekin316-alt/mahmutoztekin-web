@@ -1,0 +1,41 @@
+{
+  "giris": "Baskılar, monotipler ve atölyeden kareler.",
+  "gorseller": [
+    {
+      "gorsel": "/assets/atolye/baski-kalabalik-yuzler.jpg",
+      "aciklama": "İsimsiz, kâğıt üzerine cam baskı, 32 × 40 cm, 2022"
+    },
+    {
+      "gorsel": "/assets/atolye/baski-kraft-aile-1.jpg",
+      "aciklama": "İsimsiz, kraft kâğıdı üzerine cam baskı, 17 × 24 cm, 2022"
+    },
+    {
+      "gorsel": "/assets/atolye/baski-kraft-aile-2.jpg",
+      "aciklama": "İsimsiz, kraft kâğıdı üzerine cam baskı, 17 × 24 cm, 2022"
+    },
+    {
+      "gorsel": "/assets/atolye/baski-kraft-figur-grubu.jpg",
+      "aciklama": "İsimsiz, kraft kâğıdı üzerine cam baskı, 17 × 24,5 cm, 2022"
+    },
+    {
+      "gorsel": "/assets/atolye/baski-iki-figur-ve-at.jpg",
+      "aciklama": "İsimsiz, kâğıt üzerine cam baskı, 25 × 35 cm, 2022"
+    },
+    {
+      "gorsel": "/assets/atolye/baski-bir-digeri.jpg",
+      "aciklama": "Bir Diğeri, kâğıt üzerine monokrom baskı, 25 × 17 cm, 2023"
+    },
+    {
+      "gorsel": "/assets/atolye/monotip-duvar-2024.jpg",
+      "aciklama": "Monokrom cam baskılar, 2024"
+    },
+    {
+      "gorsel": "/assets/atolye/monotip-duvar-2024-2.jpg",
+      "aciklama": "Monokrom baskılar, 2024"
+    },
+    {
+      "gorsel": "/assets/atolye/mau-atolye-2022.jpg",
+      "aciklama": "Atölye, Mardin, 2022"
+    }
+  ]
+}

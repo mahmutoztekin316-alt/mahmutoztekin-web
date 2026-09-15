@@ -1,0 +1,17 @@
+---
+layout: base.njk
+title: Sergiler
+---
+<h1 class="sayfa-baslik">Sergiler</h1>
+{% set bolumler = [["Sergiler", sergiler.sergiler], ["Rezidans programları", sergiler.rezidanslar], ["Atölyeler", sergiler.atolyeler]] %}
+{% for b in bolumler %}
+<section class="liste">
+  <h2>{{ b[0] }}</h2>
+  <ul>
+  {% for s in b[1] %}
+    <li><span class="yil">{{ s.yil }}</span><span><strong>{{ s.ad }}</strong>{% if s.yer %}, {{ s.yer }}{% endif %}{% if s.aciklama %}<br><small>{{ s.aciklama }}</small>{% endif %}</span></li>
+  {% endfor %}
+  </ul>
+</section>
+{% endfor %}
+<p class="kucuk">Tüm sergiler karma sergidir.</p>

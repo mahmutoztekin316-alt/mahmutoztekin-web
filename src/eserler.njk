@@ -1,0 +1,18 @@
+---
+layout: base.njk
+title: Eserler
+---
+<h1 class="sayfa-baslik">Eserler</h1>
+{% for g in collections.eserler | yillar %}
+<section class="serit" aria-labelledby="y{{ g.yil }}">
+  <h2 id="y{{ g.yil }}">{{ g.yil }}</h2>
+  <div class="serit-icerik" tabindex="0">
+    {% for e in g.eserler %}
+    <a class="kart" href="{{ e.url }}">
+      <img src="{{ e.data.gorsel }}" alt="" loading="lazy">
+      <span>{{ e.data.title }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}

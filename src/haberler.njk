@@ -1,0 +1,15 @@
+---
+layout: base.njk
+title: Haberler
+---
+<h1 class="sayfa-baslik">Haberler</h1>
+<div class="haberler">
+{% for h in collections.haberler %}
+  <article>
+    <p class="tarih">{{ h.data.tarih | tarih }}</p>
+    <h2>{{ h.data.title }}</h2>
+    {% if h.data.gorsel %}<img src="{{ h.data.gorsel }}" alt="" loading="lazy">{% endif %}
+    <div class="metin">{{ h.content | safe }}</div>
+  </article>
+{% endfor %}
+</div>

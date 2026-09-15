@@ -1,0 +1,151 @@
+# Mahmut Öztekin — site paneli (Decap CMS)
+backend:
+  name: github
+  repo: mahmutoztekin-alt/mahmutoztekin-web
+  branch: main
+  commit_messages:
+    create: "Eklendi: {{collection}} “{{slug}}”"
+    update: "Güncellendi: {{collection}} “{{slug}}”"
+    delete: "Silindi: {{collection}} “{{slug}}”"
+    uploadMedia: "Görsel yüklendi: {{path}}"
+    deleteMedia: "Görsel silindi: {{path}}"
+
+# Taslak modu: değişiklikler "Yayınla" denene kadar siteye çıkmaz (Netlify kredisi harcamaz).
+publish_mode: editorial_workflow
+local_backend: true
+locale: tr
+site_url: https://mahmutoztekin.com
+display_url: https://mahmutoztekin.com
+logo_url: /favicon.svg
+
+media_folder: src/assets/uploads
+public_folder: /assets/uploads
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: eserler
+    label: Eserler
+    label_singular: Eser
+    folder: src/eserler
+    create: true
+    slug: "{{title}}"
+    extension: md
+    format: frontmatter
+    summary: "{{yil}} · {{title}}"
+    sortable_fields: [yil, title, sira]
+    view_groups:
+      - { label: Yıl, field: yil }
+    fields:
+      - { label: "Eser adı", name: title, widget: string }
+      - { label: "Yıl", name: yil, widget: number, value_type: int }
+      - { label: "Yıl içindeki sıra", name: sira, widget: number, value_type: int, default: 1, hint: "Eserler sayfasında o yılın şeridindeki yeri. 1 en başta." }
+      - { label: "Ana görsel", name: gorsel, widget: image, hint: "Uzun kenarı 1600 piksel civarında, JPG." }
+      - { label: "Teknik", name: teknik, widget: string, default: "Tuval üzerine yağlı boya" }
+      - { label: "Yükseklik (cm)", name: yukseklik, widget: number, value_type: float, required: false }
+      - { label: "Genişlik (cm)", name: genislik, widget: number, value_type: float, required: false }
+      - { label: "Parça sayısı", name: parca, widget: string, required: false, hint: "Çok parçalı işlerde, örn. “6 parça”. Tek parçaysa boş bırakın." }
+      - { label: "Ölçü her bir parça için mi?", name: her_biri, widget: boolean, default: false }
+      - { label: "Kavramsal metin görünsün mü?", name: kavramsal_metin, widget: boolean, default: false, hint: "Ben ve Öteki ve öncesindeki işlerde açık." }
+      - { label: "Kısa not", name: notu, widget: text, required: false }
+      - { label: "Detay fotoğrafları", name: detaylar, widget: list, required: false, field: { label: Görsel, name: gorsel, widget: image } }
+      - { label: "Sergi geçmişi", name: sergi_gecmisi, widget: list, required: false, field: { label: Sergi, name: sergi, widget: string }, hint: "Örn. Görüngüler, Artuklu, Mardin, 2026" }
+      - { label: "Durum", name: durum, widget: select, options: ["Fiyat için iletişim", "Koleksiyonda", "Satıldı"], default: "Fiyat için iletişim" }
+      - { label: "Sitede görünsün", name: yayinda, widget: boolean, default: true }
+      - { label: "Eser metni", name: body, widget: markdown, required: false, hint: "Şimdilik boş." }
+
+  - name: haberler
+    label: Haberler
+    label_singular: Haber
+    folder: src/haberler
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{title}}"
+    summary: "{{tarih}} · {{title}}"
+    sortable_fields: [tarih, title]
+    fields:
+      - { label: "Başlık", name: title, widget: string }
+      - { label: "Tarih", name: tarih, widget: datetime, date_format: "DD.MM.YYYY", time_format: false, format: "YYYY-MM-DD" }
+      - { label: "Görsel", name: gorsel, widget: image, required: false }
+      - { label: "Metin", name: body, widget: markdown }
+
+  - name: sayfalar
+    label: Sayfalar
+    files:
+      - label: Ana sayfa
+        name: anasayfa
+        file: src/_data/anasayfa.json
+        fields:
+          - { label: "Ana sayfadaki eser", name: eser, widget: relation, collection: eserler, value_field: "{{slug}}", search_fields: [title], display_fields: ["{{title}} ({{yil}})"] }
+          - { label: "Düğme yazısı", name: buton, widget: string }
+      - label: Hakkında
+        name: hakkinda
+        file: src/_data/hakkinda.json
+        fields:
+          - { label: "Portre", name: portre, widget: image }
+          - { label: "Biyografi", name: biyografi, widget: text, hint: "Paragrafları bir boş satırla ayırın." }
+          - { label: "Sanatçı metni", name: sanatci_metni, widget: text }
+          - { label: "CV (PDF)", name: cv, widget: file }
+      - label: Metin
+        name: metin
+        file: src/_data/metin.json
+        fields:
+          - { label: "Başlık", name: baslik, widget: string }
+          - { label: "Alt başlık", name: alt_baslik, widget: string, required: false }
+          - { label: "Metin", name: govde, widget: text, hint: "Paragrafları bir boş satırla ayırın. Bölüm ayırmak için tek satıra * * * yazın." }
+      - label: Kavramsal metin (eser sayfaları)
+        name: kavramsal
+        file: src/_data/kavramsal.json
+        fields:
+          - { label: "Metin", name: govde, widget: text }
+      - label: Sergiler
+        name: sergiler
+        file: src/_data/sergiler.json
+        fields:
+          - label: Sergiler
+            name: sergiler
+            widget: list
+            summary: "{{yil}} · {{ad}}"
+            fields: &satir
+              - { label: "Yıl", name: yil, widget: number, value_type: int }
+              - { label: "Ad", name: ad, widget: string }
+              - { label: "Yer", name: yer, widget: string, required: false }
+              - { label: "Açıklama", name: aciklama, widget: string, required: false }
+          - { label: "Rezidans programları", name: rezidanslar, widget: list, summary: "{{yil}} · {{ad}}", fields: *satir }
+          - { label: "Atölyeler", name: atolyeler, widget: list, summary: "{{yil}} · {{ad}}", fields: *satir }
+      - label: Basın
+        name: basin
+        file: src/_data/basin.json
+        fields:
+          - label: Bağlantılar
+            name: baglantilar
+            widget: list
+            fields:
+              - { label: "Ad", name: ad, widget: string }
+              - { label: "Açıklama", name: aciklama, widget: string, required: false }
+              - { label: "Adres (URL)", name: url, widget: string }
+      - label: Atölye
+        name: atolye
+        file: src/_data/atolye.json
+        fields:
+          - { label: "Giriş", name: giris, widget: text, required: false }
+          - label: Görseller
+            name: gorseller
+            widget: list
+            summary: "{{aciklama}}"
+            fields:
+              - { label: "Görsel", name: gorsel, widget: image }
+              - { label: "Açıklama", name: aciklama, widget: string }
+      - label: Site ayarları
+        name: ayarlar
+        file: src/_data/ayarlar.json
+        fields:
+          - { label: "Site adı", name: site_adi, widget: string }
+          - { label: "Kısa açıklama", name: aciklama, widget: string }
+          - { label: "E-posta", name: eposta, widget: string }
+          - { label: "Instagram adresi", name: instagram, widget: string }
+          - { label: "Instagram kullanıcı adı", name: instagram_ad, widget: string }
+          - { label: "Ziyaretçi sayacı kodu (GoatCounter)", name: istatistik_kodu, widget: string, required: false }
+          - { label: "Site adresi", name: site_url, widget: string }

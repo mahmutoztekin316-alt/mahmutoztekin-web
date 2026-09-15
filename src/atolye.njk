@@ -1,0 +1,11 @@
+---
+layout: base.njk
+title: Atölye
+---
+<h1 class="sayfa-baslik">Atölye</h1>
+{% if atolye.giris %}<p class="giris">{{ atolye.giris }}</p>{% endif %}
+<div class="atolye-izgara">
+  {% for g in atolye.gorseller %}
+  <figure><img src="{{ g.gorsel }}" alt="{{ g.aciklama }}" loading="lazy"><figcaption>{{ g.aciklama }}</figcaption></figure>
+  {% endfor %}
+</div>

@@ -1,0 +1,12 @@
+---
+layout: base.njk
+title: Basın
+---
+<h1 class="sayfa-baslik">Basın</h1>
+<section class="liste tek">
+  <ul>
+  {% for b in basin.baglantilar %}
+    <li><span><a href="{{ b.url }}" rel="noopener">{{ b.ad }}</a>{% if b.aciklama %}<br><small>{{ b.aciklama }}</small>{% endif %}</span></li>
+  {% endfor %}
+  </ul>
+</section>

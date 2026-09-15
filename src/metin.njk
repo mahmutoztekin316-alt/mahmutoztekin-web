@@ -1,0 +1,10 @@
+---
+layout: base.njk
+title: Metin
+---
+<article class="metin uzun">
+  <h1 class="sayfa-baslik">{{ metin.baslik }}</h1>
+  {% if metin.alt_baslik %}<p class="alt-baslik">{{ metin.alt_baslik }}</p>{% endif %}
+  {{ metin.govde | ilkParagraf | paragraflar | safe }}
+  <details><summary>Devamını oku</summary>{{ metin.govde | kalanParagraflar | paragraflar | safe }}</details>
+</article>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if title and page.url != "/" %}{{ title }} · {% endif %}{{ ayarlar.site_adi }}</title>
+<meta name="description" content="{{ aciklama or ayarlar.aciklama }}">
+<meta property="og:title" content="{{ title or ayarlar.site_adi }}">
+<meta property="og:description" content="{{ aciklama or ayarlar.aciklama }}">
+{% if gorsel %}<meta property="og:image" content="{{ ayarlar.site_url }}{{ gorsel }}">{% endif %}
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400&display=swap">
+<link rel="stylesheet" href="/assets/stil.css">
+{% if ayarlar.istatistik_kodu %}<script data-goatcounter="https://{{ ayarlar.istatistik_kodu }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>{% endif %}
+</head>
+<body class="{{ govde_sinifi }}">
+<a class="atla" href="#icerik">İçeriğe geç</a>
+<header class="ust">
+  <a class="isim" href="/">{{ ayarlar.site_adi }}</a>
+  <button class="menu-dugme" type="button" aria-expanded="false" aria-controls="menu">Menü</button>
+  <nav id="menu" class="menu" aria-label="Ana menü">
+    {% set menu = [["Hakkında","/hakkinda/"],["Metin","/metin/"],["Eserler","/eserler/"],["Atölye","/atolye/"],["Sergiler","/sergiler/"],["Basın","/basin/"],["Haberler","/haberler/"],["İletişim","/iletisim/"]] %}
+    {% for m in menu %}<a href="{{ m[1] }}"{% if page.url.startsWith(m[1]) %} aria-current="page"{% endif %}>{{ m[0] }}</a>{% endfor %}
+  </nav>
+</header>
+<main id="icerik">
+{{ content | safe }}
+</main>
+<footer class="alt">
+  <div class="bant" aria-hidden="true"></div>
+  <div class="alt-satir">
+    <span>© Mahmut Öztekin</span>
+    <span><a href="mailto:{{ ayarlar.eposta }}">{{ ayarlar.eposta }}</a> · <a href="{{ ayarlar.instagram }}" rel="noopener">Instagram</a></span>
+  </div>
+</footer>
+<script>
+const d=document.querySelector('.menu-dugme'),n=document.getElementById('menu');
+d.addEventListener('click',()=>{const a=d.getAttribute('aria-expanded')==='true';d.setAttribute('aria-expanded',String(!a));n.classList.toggle('acik',!a);});
+</script>
+</body>
+</html>

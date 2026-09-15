@@ -1,0 +1,16 @@
+---
+layout: base.njk
+title: Hakkında
+---
+<div class="hakkinda">
+  <img class="portre" src="{{ hakkinda.portre }}" alt="Mahmut Öztekin">
+  <div>
+    <h1 class="sayfa-baslik">Hakkında</h1>
+    <div class="metin">{{ hakkinda.biyografi | paragraflar | safe }}</div>
+    <p><a class="dugme" href="{{ hakkinda.cv }}" download>CV'yi indir (PDF)</a></p>
+  </div>
+</div>
+<section class="sanatci-metni metin">
+  <h2>Sanatçı metni</h2>
+  {{ hakkinda.sanatci_metni | paragraflar | safe }}
+</section>

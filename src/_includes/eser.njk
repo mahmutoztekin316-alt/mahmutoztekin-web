@@ -1,0 +1,67 @@
+---
+layout: base.njk
+govde_sinifi: eser-sayfa
+---
+{% set k = collections.eserler | komsular(page.url) %}
+<article class="eser">
+  <div class="duvar">
+    <img src="{{ gorsel }}" alt="{{ title }}, {{ yil }}">
+  </div>
+  <div class="eser-bilgi">
+    <header class="kunye">
+      <h1>{{ title }}</h1>
+      <p>{{ yil }}<br>{{ teknik }}{% if parca %}, {{ parca }}{% endif %}{% set olc = {yukseklik: yukseklik, genislik: genislik, her_biri: her_biri} | olcu %}{% if olc %}<br>{{ olc }}{% endif %}</p>
+      {% if notu %}<p class="not">{{ notu }}</p>{% endif %}
+      <p class="durum"><a href="mailto:{{ ayarlar.eposta }}?subject={{ ('Fiyat bilgisi: ' + title + ' (' + yil + ')') | urlencode }}">{{ durum or "Fiyat için iletişim" }}</a></p>
+      {% if yukseklik and genislik and not her_biri and not parca %}
+      <button class="duvarda-gor" type="button" data-y="{{ yukseklik }}" data-g="{{ genislik }}" data-src="{{ gorsel }}">Duvarda gör</button>
+      {% endif %}
+    </header>
+
+    {% if content | trim %}<div class="eser-metni">{{ content | safe }}</div>{% endif %}
+
+    {% if kavramsal_metin and kavramsal.govde %}
+    <div class="kavramsal">
+      {{ kavramsal.govde | ilkParagraf | paragraflar | safe }}
+      <details><summary>Devamını oku</summary>{{ kavramsal.govde | kalanParagraflar | paragraflar | safe }}</details>
+    </div>
+    {% endif %}
+
+    {% if detaylar and detaylar.length %}
+    <section class="detaylar" aria-label="Detaylar">
+      {% for d in detaylar %}<img src="{{ d }}" alt="{{ title }}, detay {{ loop.index }}" loading="lazy">{% endfor %}
+    </section>
+    {% endif %}
+
+    {% if sergi_gecmisi and sergi_gecmisi.length %}
+    <section class="sergi-gecmisi">
+      <h2>Sergi geçmişi</h2>
+      <ul>{% for s in sergi_gecmisi %}<li>{{ s }}</li>{% endfor %}</ul>
+    </section>
+    {% endif %}
+  </div>
+</article>
+
+<nav class="komsu" aria-label="Diğer eserler">
+  {% if k.onceki %}<a href="{{ k.onceki.url }}">← {{ k.onceki.data.title }}</a>{% else %}<span></span>{% endif %}
+  <a href="/eserler/">Tüm eserler</a>
+  {% if k.sonraki %}<a href="{{ k.sonraki.url }}">{{ k.sonraki.data.title }} →</a>{% else %}<span></span>{% endif %}
+</nav>
+
+<dialog class="sahne-kutu" aria-label="Duvarda görünüm">
+  <div class="sahne"><div class="sahne-eser"><img alt=""></div><div class="kanepe" aria-hidden="true"></div></div>
+  <p class="sahne-not">Ölçek: 2 metrelik bir kanepe.</p>
+  <form method="dialog"><button>Kapat</button></form>
+</dialog>
+<script>
+const b=document.querySelector('.duvarda-gor');
+if(b){const dlg=document.querySelector('.sahne-kutu');
+b.addEventListener('click',()=>{
+  const h=+b.dataset.y,w=+b.dataset.g,W=Math.max(360,w+120);const alt0=Math.max(100,150-h/2);const H=Math.max(280,alt0+h+30);
+  const s=dlg.querySelector('.sahne');s.style.aspectRatio=W+'/'+H;
+  const e=dlg.querySelector('.sahne-eser');const alt=Math.max(100,150-h/2);
+  e.style.width=(w/W*100)+'%';e.style.height=(h/H*100)+'%';e.style.left=((W-w)/2/W*100)+'%';e.style.bottom=(alt/H*100)+'%';
+  e.querySelector('img').src=b.dataset.src;
+  const k=dlg.querySelector('.kanepe');k.style.width=(200/W*100)+'%';k.style.left=((W-200)/2/W*100)+'%';k.style.height=(85/H*100)+'%';
+  dlg.showModal();});}
+</script>
