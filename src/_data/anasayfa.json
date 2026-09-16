@@ -1,10 +1,10 @@
 {
   "eserler": [
     "senin-bahcende-buyuyen-bir-yabaniyim",
-    "aidiyet-provasi",
-    "saklanmayi-beceremedim"
+    "aidiyet-provasi"
   ],
   "sure": 7,
   "buton": "Eserlere git",
-  "buton_en": "See the works"
+  "buton_en": "See the works",
+  "duzen": "donen"
 }

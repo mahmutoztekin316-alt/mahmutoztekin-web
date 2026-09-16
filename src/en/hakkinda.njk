@@ -16,7 +16,7 @@ govde_sinifi: hakkinda-sayfa
     </div>
     <div class="kaydir metin" tabindex="0">
       {{ (hakkinda.biyografi_en if dil == "en" else hakkinda.biyografi) | paragraflar | safe }}
-      <div class="bosluk"></div>
+      <h2 class="ara-baslik">{{ t.sanatci_metni }}</h2>
       {{ (hakkinda.sanatci_metni_en if dil == "en" else hakkinda.sanatci_metni) | paragraflar | safe }}
     </div>
   </div>

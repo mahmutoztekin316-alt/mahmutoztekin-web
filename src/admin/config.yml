@@ -92,6 +92,7 @@ collections:
         fields:
           - { label: "Ana sayfada dönen eserler", name: eserler, widget: relation, collection: eserler, value_field: "{{slug}}", search_fields: [title], display_fields: ["{{title}} ({{yil}})"], multiple: true, hint: "Sırayla gösterilir. Tek eser seçilirse dönmez." }
           - { label: "Her eser kaç saniye kalsın", name: sure, widget: number, value_type: int, default: 7 }
+          - { label: "Düzen", name: duzen, widget: select, options: [{label: "Eserler sırayla döner", value: donen}, {label: "İki eser yan yana sabit", value: yanyana}], default: donen }
           - { label: "Düğme yazısı", name: buton, widget: string }
           - { label: "Düğme yazısı (İngilizce)", name: buton_en, widget: string, required: false }
       - label: Hakkında

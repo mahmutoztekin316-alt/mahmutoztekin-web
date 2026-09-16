@@ -5,7 +5,14 @@ dil: tr
 karsi: /en/contact/
 ---
 {% set dil = dil or "tr" %}{% set t = i18n[dil] %}
-<h1 class="sayfa-baslik">{{ t.iletisim }}</h1>
-<p class="buyuk"><a href="mailto:{{ ayarlar.eposta }}">{{ ayarlar.eposta }}</a></p>
-<p>{{ t.iletisim_metin }}</p>
-<p><a href="{{ ayarlar.instagram }}" rel="noopener">Instagram {{ ayarlar.instagram_ad }}</a></p>
+<div class="iletisim beyaz-cerceve">
+  <div class="iletisim-kutu">
+    <video src="{{ ayarlar.iletisim_video }}" poster="/assets/videos/atolye-iletisim.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+    <p class="iletisim-satir"><span class="baslik">{{ t.iletisim }}</span> <a href="mailto:{{ ayarlar.eposta }}">{{ ayarlar.eposta }}</a> <span class="ayr">·</span> <a href="{{ ayarlar.instagram }}" rel="noopener">Instagram {{ ayarlar.instagram_ad }}</a> <span class="ayr">·</span> <span class="not">{{ t.iletisim_metin }}</span></p>
+  </div>
+</div>
+<script>
+(()=>{const k=document.querySelector('.iletisim-kutu'),v=k&&k.querySelector('video');if(!v)return;
+const olc=()=>{k.style.width='';const h=k.clientHeight-(k.querySelector('.iletisim-satir').offsetHeight+16);if(h>0&&innerWidth>600){const w=Math.min(h*1072/744,k.parentElement.clientWidth);k.style.width=w+'px';}};
+addEventListener('resize',olc);olc();setTimeout(olc,50);})();
+</script>

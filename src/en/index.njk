@@ -11,11 +11,12 @@ gorsel: /assets/eserler/senin-bahcende-buyuyen-bir-yabaniyim.jpg
 {% set liste = [] %}
 {% for slug in anasayfa.eserler %}{% set e = collections.eserler | bul(slug) %}{% if e %}{% set liste = (liste.push(e), liste) %}{% endif %}{% endfor %}
 {% if liste.length %}
-<section class="kahraman" data-sure="{{ anasayfa.sure or 7 }}">
+<section class="kahraman{% if anasayfa.duzen == "yanyana" %} yanyana{% endif %}" data-sure="{{ anasayfa.sure or 7 }}">
   <div class="kahraman-gorsel">
     {% for e in liste %}{% set b = e.data.title_en if (dil == "en" and e.data.title_en) else e.data.title %}
-    <a class="kahraman-eser{% if loop.first %} gorunur{% endif %}" href="{{ e | enUrl if dil == 'en' else e.url }}" {% if not loop.first %}aria-hidden="true" tabindex="-1"{% endif %}>
+    <a class="kahraman-eser{% if loop.first %} gorunur{% endif %}" href="{{ e | enUrl if dil == 'en' else e.url }}" {% if not loop.first %}aria-hidden="true" tabindex="-1"{% endif %} style="color:inherit;text-decoration:none">
       <img src="{{ e.data.gorsel }}" alt="{{ b }}, {{ e.data.yil }}"{% if not loop.first %} loading="lazy"{% endif %}>
+      {% if anasayfa.duzen == "yanyana" %}<span class="kunye-yan"><strong>{{ b }}</strong>, {{ e.data.yil }}<br>{{ e.data.teknik | teknikEn if dil == "en" else e.data.teknik }}{% set olc = {yukseklik: e.data.yukseklik, genislik: e.data.genislik, her_biri: e.data.her_biri} | olcu(dil) %}{% if olc %}, {{ olc }}{% endif %}</span>{% endif %}
     </a>
     {% endfor %}
   </div>
@@ -28,7 +29,7 @@ gorsel: /assets/eserler/senin-bahcende-buyuyen-bir-yabaniyim.jpg
     <a class="git" href="{{ '/en/works/' if dil == 'en' else '/eserler/' }}">{{ anasayfa.buton_en if dil == 'en' else anasayfa.buton }} →</a>
   </div>
 </section>
-{% if liste.length > 1 %}
+{% if liste.length > 1 and anasayfa.duzen != "yanyana" %}
 <script>
 (()=>{const k=document.querySelector('.kahraman');if(!k||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
 const E=[...k.querySelectorAll('.kahraman-eser')],K=[...k.querySelectorAll('.kunye-kisa')];let i=0;

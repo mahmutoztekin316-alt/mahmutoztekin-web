@@ -35,7 +35,8 @@
     "tuval": "Tuval üzerine yağlı boya",
     "kagit": "Kâğıt üzerine yağlı boya",
     "atolye": "Atölye",
-    "basin": "Basın"
+    "basin": "Basın",
+    "sanatci_metni": "Sanatçı metni"
   },
   "en": {
     "hakkinda": "About",
@@ -73,6 +74,7 @@
     "tuval": "Oil on canvas",
     "kagit": "Oil on paper",
     "atolye": "Studio",
-    "basin": "Press"
+    "basin": "Press",
+    "sanatci_metni": "Artist statement"
   }
 }

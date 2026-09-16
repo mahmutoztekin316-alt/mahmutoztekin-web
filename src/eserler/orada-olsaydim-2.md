@@ -10,7 +10,8 @@ genislik: 45
 her_biri: false
 kavramsal_metin: true
 detaylar: []
-sergi_gecmisi: []
+sergi_gecmisi:
+  - Offgridart, Offgrid Art Shop, İstanbul, 2026
 durum: Fiyat için iletişim
 satis_baglantisi: https://www.offgridartshop.com
 yayinda: true

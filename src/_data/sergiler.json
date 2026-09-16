@@ -9,8 +9,8 @@
       "yer_en": "Istanbul",
       "aciklama_en": "Group show, opening exhibition of Offgrid Art Shop, 13–14 June",
       "gorseller": [
-        "/assets/sergiler/offgridart-2.jpg",
-        "/assets/sergiler/offgridart-1.jpg"
+        "/assets/sergiler/offgridart-1.jpg",
+        "/assets/sergiler/offgridart-2.jpg"
       ]
     },
     {
@@ -22,9 +22,7 @@
       "yer_en": "Artuklu, Mardin",
       "aciklama_en": "Independent group show held alongside the 7th Mardin Biennial, 15 May. Derya Cırık, Mahmut Öztekin, Mehmet Akan",
       "gorseller": [
-        "/assets/sergiler/gorunguler-1.jpg",
-        "/assets/sergiler/gorunguler-2.jpg",
-        "/assets/sergiler/gorunguler-3.jpg"
+        "/assets/sergiler/gorunguler-1.jpg"
       ]
     },
     {
@@ -36,8 +34,8 @@
       "yer_en": "Lütfi Kırdar, Istanbul",
       "aciklama_en": "Koli Art Space, 16–20 April",
       "gorseller": [
-        "/assets/sergiler/ci-bloom-2025-2.jpg",
-        "/assets/sergiler/ci-bloom-2025-1.jpg"
+        "/assets/sergiler/ci-bloom-2025-1.jpg",
+        "/assets/sergiler/ci-bloom-2025-2.jpg"
       ]
     },
     {
@@ -49,7 +47,9 @@
       "yer_en": "Istanbul",
       "aciklama_en": "BASE, 8th edition, 27 November–1 December",
       "gorseller": [
-        "/assets/sergiler/sanat-ne-yapar-1.jpg"
+        "/assets/sergiler/sanat-ne-yapar-1.jpg",
+        "/assets/sergiler/gorunguler-2.jpg",
+        "/assets/sergiler/gorunguler-3.jpg"
       ]
     },
     {
@@ -155,7 +155,11 @@
       "gorseller": [
         "/assets/sergiler/esikte-birlikte-1.jpg",
         "/assets/sergiler/esikte-birlikte-2.jpg",
-        "/assets/sergiler/esikte-birlikte-3.jpg"
+        "/assets/sergiler/esikte-birlikte-3.jpg",
+        "/assets/sergiler/esikte-birlikte-4.jpg",
+        "/assets/sergiler/esikte-birlikte-5.jpg",
+        "/assets/sergiler/esikte-birlikte-6.jpg",
+        "/assets/sergiler/esikte-birlikte-7.jpg"
       ]
     }
   ],
