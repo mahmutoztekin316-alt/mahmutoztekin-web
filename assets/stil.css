@@ -13,15 +13,18 @@ a:hover{color:var(--kirmizi)}
 .atla:focus{left:var(--kenar);top:8px;background:#fff;padding:6px 10px;z-index:9}
 
 /* üst */
-.ust{flex:none;position:relative;z-index:10;background:var(--duvar);display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(12px,2.4vh,22px) var(--kenar);border-bottom:1px solid var(--cizgi)}
-.isim{font-weight:500;font-size:18px;text-decoration:none;letter-spacing:.01em}
+.ust{flex:none;position:relative;z-index:10;background:#2f4a78 url("/assets/ust-gul.jpg") repeat-x left center/auto 100px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(12px,2.4vh,22px) var(--kenar);border-bottom:1px solid var(--cizgi)}
+.isim{font-weight:500;font-size:18px;text-decoration:none;letter-spacing:.01em;text-shadow:0 1px 2px rgba(0,20,60,.6)}
+.isim:hover{color:#fff}
 .menu{display:flex;gap:22px;flex-wrap:wrap}
-.menu a{text-decoration:none;font-size:14px;padding:4px 0;border-bottom:1.5px solid transparent}
-.menu a[aria-current="page"]{border-bottom-color:var(--kirmizi)}
-.menu-dugme{display:none;font:inherit;font-size:14px;background:none;border:1px solid var(--cizgi);border-radius:8px;padding:6px 12px;color:var(--murekkep)}
+.menu a{text-decoration:none;font-size:14px;padding:4px 0;border-bottom:1.5px solid transparent;text-shadow:0 1px 2px rgba(0,20,60,.6)}
+.menu a:hover{color:#fff}
+.menu a[aria-current="page"]{border-bottom-color:#fff}
+.menu-dugme{display:none;font:inherit;font-size:14px;background:none;border:1px solid rgba(255,255,255,.7);border-radius:8px;padding:6px 12px;color:#fff}
 @media (max-width:860px){
   .menu-dugme{display:block}
   .menu{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:2px;padding:6px var(--kenar) 14px;background:var(--duvar);border-bottom:1px solid var(--cizgi);box-shadow:0 12px 24px rgba(20,20,20,.06)}
+  .menu a{color:var(--murekkep);text-shadow:none}
   .menu.acik{display:flex}
   .menu a{font-size:17px;padding:8px 0;border-bottom:1px solid var(--cizgi)}
   .menu a[aria-current="page"]{color:var(--kirmizi);border-bottom-color:var(--cizgi)}
@@ -109,7 +112,7 @@ details[open] summary{margin-bottom:10px}
 .portre-kutu{min-height:0;display:flex}
 .portre{height:100%;width:auto;max-width:42vw;object-fit:contain;object-position:left top}
 .hakkinda-sag{min-height:0;display:flex;flex-direction:column}
-.baslik-satir{flex:none;display:flex;justify-content:space-between;align-items:baseline;gap:16px;max-width:64ch;margin-bottom:clamp(10px,2.2vh,22px)}
+.baslik-satir{flex:none;display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:clamp(10px,2.2vh,22px)}
 .baslik-satir .sayfa-baslik{margin:0}
 .cv{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--gri);text-decoration:none}
 .cv svg{position:relative;top:-1px}
@@ -117,6 +120,7 @@ details[open] summary{margin-bottom:10px}
 .gizli{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .metin{max-width:64ch}
 .metin p{margin:0 0 1em}
+.hakkinda .kaydir.metin{max-width:none}
 .hakkinda .kaydir hr.ayrac{margin:24px 0}
 @media (max-width:760px){
   .hakkinda{grid-template-columns:1fr;grid-template-rows:minmax(0,34%) minmax(0,1fr);gap:16px}
