@@ -5,5 +5,47 @@
   "instagram": "https://instagram.com/mahmut.oztkn",
   "instagram_ad": "@mahmut.oztkn",
   "istatistik_kodu": "",
-  "site_url": "https://mahmutoztekin.com"
+  "site_url": "https://mahmutoztekin.com",
+  "menu": [
+    {
+      "ad": "Hakkında",
+      "adres": "/hakkinda/",
+      "goster": true
+    },
+    {
+      "ad": "Eserler",
+      "adres": "/eserler/",
+      "goster": true
+    },
+    {
+      "ad": "Sergiler",
+      "adres": "/sergiler/",
+      "goster": true
+    },
+    {
+      "ad": "Metin",
+      "adres": "/metin/",
+      "goster": true
+    },
+    {
+      "ad": "Haberler",
+      "adres": "/haberler/",
+      "goster": true
+    },
+    {
+      "ad": "İletişim",
+      "adres": "/iletisim/",
+      "goster": true
+    },
+    {
+      "ad": "Atölye",
+      "adres": "/atolye/",
+      "goster": false
+    },
+    {
+      "ad": "Basın",
+      "adres": "/basin/",
+      "goster": false
+    }
+  ]
 }

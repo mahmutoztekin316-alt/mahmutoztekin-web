@@ -149,3 +149,13 @@ collections:
           - { label: "Instagram kullanıcı adı", name: instagram_ad, widget: string }
           - { label: "Ziyaretçi sayacı kodu (GoatCounter)", name: istatistik_kodu, widget: string, required: false }
           - { label: "Site adresi", name: site_url, widget: string }
+          - label: Menü
+            name: menu
+            widget: list
+            allow_add: false
+            summary: "{{ad}}"
+            hint: "Sırayı sürükleyerek değiştirin. Göster kapalıysa sayfa menüde görünmez; Atölye ve Basın sayfaları ayrıca sitede de yayınlanmaz."
+            fields:
+              - { label: "Menüdeki ad", name: ad, widget: string }
+              - { label: "Adres (değiştirmeyin)", name: adres, widget: string }
+              - { label: "Göster", name: goster, widget: boolean, default: true }

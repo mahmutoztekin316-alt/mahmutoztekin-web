@@ -1,11 +1,19 @@
----
-layout: base.njk
-title: Atölye
+---js
+{
+  layout: "base.njk",
+  title: "Atölye",
+  // Bu sayfa yalnızca Site ayarları › Menü'de "Göster" açıksa yayınlanır.
+  eleventyComputed: {
+    permalink: (data) => ((data.ayarlar && data.ayarlar.menu) || []).some((m) => m.adres === "/atolye/" && m.goster) ? "/atolye/" : false
+  }
+}
 ---
 <h1 class="sayfa-baslik">Atölye</h1>
+<div class="kaydir" tabindex="0">
 {% if atolye.giris %}<p class="giris">{{ atolye.giris }}</p>{% endif %}
 <div class="atolye-izgara">
   {% for g in atolye.gorseller %}
   <figure><img src="{{ g.gorsel }}" alt="{{ g.aciklama }}" loading="lazy"><figcaption>{{ g.aciklama }}</figcaption></figure>
   {% endfor %}
+</div>
 </div>

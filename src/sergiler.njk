@@ -3,6 +3,7 @@ layout: base.njk
 title: Sergiler
 ---
 <h1 class="sayfa-baslik">Sergiler</h1>
+<div class="kaydir" tabindex="0">
 {% set bolumler = [["Sergiler", sergiler.sergiler], ["Rezidans programları", sergiler.rezidanslar], ["Atölyeler", sergiler.atolyeler]] %}
 {% for b in bolumler %}
 <section class="liste">
@@ -15,3 +16,4 @@ title: Sergiler
 </section>
 {% endfor %}
 <p class="kucuk">Tüm sergiler karma sergidir.</p>
+</div>

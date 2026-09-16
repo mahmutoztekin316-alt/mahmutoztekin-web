@@ -6,7 +6,7 @@ govde_sinifi: anasayfa
 {% set e = collections.eserler | bul(anasayfa.eser) %}
 {% if e %}
 <section class="kahraman">
-  <a href="{{ e.url }}"><img src="{{ e.data.gorsel }}" alt="{{ e.data.title }}, {{ e.data.yil }}"></a>
+  <a class="kahraman-gorsel" href="{{ e.url }}"><img src="{{ e.data.gorsel }}" alt="{{ e.data.title }}, {{ e.data.yil }}"></a>
   <div class="kahraman-alt">
     <p class="kunye-kisa"><strong>{{ e.data.title }}</strong>, {{ e.data.yil }}<br>{{ e.data.teknik }}{% set olc = {yukseklik: e.data.yukseklik, genislik: e.data.genislik, her_biri: e.data.her_biri} | olcu %}{% if olc %}, {{ olc }}{% endif %}</p>
     <a class="git" href="/eserler/">{{ anasayfa.buton }} →</a>

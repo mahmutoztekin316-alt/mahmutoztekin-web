@@ -3,6 +3,7 @@ layout: base.njk
 title: Eserler
 ---
 <h1 class="sayfa-baslik">Eserler</h1>
+<div class="kaydir seritler" tabindex="0">
 {% for g in collections.eserler | yillar %}
 <section class="serit" aria-labelledby="y{{ g.yil }}">
   <h2 id="y{{ g.yil }}">{{ g.yil }}</h2>
@@ -16,3 +17,4 @@ title: Eserler
   </div>
 </section>
 {% endfor %}
+</div>

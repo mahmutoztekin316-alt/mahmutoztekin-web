@@ -1,8 +1,15 @@
----
-layout: base.njk
-title: Basın
+---js
+{
+  layout: "base.njk",
+  title: "Basın",
+  // Bu sayfa yalnızca Site ayarları › Menü'de "Göster" açıksa yayınlanır.
+  eleventyComputed: {
+    permalink: (data) => ((data.ayarlar && data.ayarlar.menu) || []).some((m) => m.adres === "/basin/" && m.goster) ? "/basin/" : false
+  }
+}
 ---
 <h1 class="sayfa-baslik">Basın</h1>
+<div class="kaydir" tabindex="0">
 <section class="liste tek">
   <ul>
   {% for b in basin.baglantilar %}
@@ -10,3 +17,4 @@ title: Basın
   {% endfor %}
   </ul>
 </section>
+</div>

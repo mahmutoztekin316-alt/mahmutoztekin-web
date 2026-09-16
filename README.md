@@ -14,7 +14,7 @@ Her yayın Netlify'ın ücretsiz planından kredi harcar; ayda yaklaşık 20 yay
 
 ## Görseller
 
-Eser görselleri uzun kenarı 1600 piksel civarında JPG olmalı. Panelden yüklenen görseller `src/assets/uploads` klasörüne gider.
+Eser görselleri uzun kenarı 1600 piksel civarında JPG olmalı. Panelden yüklenen görseller `assets/uploads` klasörüne gider.
 
 ## Klasörler
 

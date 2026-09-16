@@ -7,7 +7,7 @@ govde_sinifi: eser-sayfa
   <div class="duvar">
     <img src="{{ gorsel }}" alt="{{ title }}, {{ yil }}">
   </div>
-  <div class="eser-bilgi">
+  <div class="eser-bilgi kaydir" tabindex="0">
     <header class="kunye">
       <h1>{{ title }}</h1>
       <p>{{ yil }}<br>{{ teknik }}{% if parca %}, {{ parca }}{% endif %}{% set olc = {yukseklik: yukseklik, genislik: genislik, her_biri: her_biri} | olcu %}{% if olc %}<br>{{ olc }}{% endif %}</p>
@@ -39,14 +39,15 @@ govde_sinifi: eser-sayfa
       <ul>{% for s in sergi_gecmisi %}<li>{{ s }}</li>{% endfor %}</ul>
     </section>
     {% endif %}
+
+    <nav class="komsu" aria-label="Diğer eserler">
+      {% if k.onceki %}<a href="{{ k.onceki.url }}">← {{ k.onceki.data.title }}</a>{% else %}<span></span>{% endif %}
+      <a href="/eserler/">Tüm eserler</a>
+      {% if k.sonraki %}<a href="{{ k.sonraki.url }}">{{ k.sonraki.data.title }} →</a>{% else %}<span></span>{% endif %}
+    </nav>
   </div>
 </article>
 
-<nav class="komsu" aria-label="Diğer eserler">
-  {% if k.onceki %}<a href="{{ k.onceki.url }}">← {{ k.onceki.data.title }}</a>{% else %}<span></span>{% endif %}
-  <a href="/eserler/">Tüm eserler</a>
-  {% if k.sonraki %}<a href="{{ k.sonraki.url }}">{{ k.sonraki.data.title }} →</a>{% else %}<span></span>{% endif %}
-</nav>
 
 <dialog class="sahne-kutu" aria-label="Duvarda görünüm">
   <div class="sahne"><div class="sahne-eser"><img alt=""></div><div class="kanepe" aria-hidden="true"></div></div>

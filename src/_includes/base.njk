@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{% if title and page.url != "/" %}{{ title }} · {% endif %}{{ ayarlar.site_adi }}</title>
 <meta name="description" content="{{ aciklama or ayarlar.aciklama }}">
 <meta property="og:title" content="{{ title or ayarlar.site_adi }}">
@@ -21,8 +21,7 @@
   <a class="isim" href="/">{{ ayarlar.site_adi }}</a>
   <button class="menu-dugme" type="button" aria-expanded="false" aria-controls="menu">Menü</button>
   <nav id="menu" class="menu" aria-label="Ana menü">
-    {% set menu = [["Hakkında","/hakkinda/"],["Metin","/metin/"],["Eserler","/eserler/"],["Atölye","/atolye/"],["Sergiler","/sergiler/"],["Basın","/basin/"],["Haberler","/haberler/"],["İletişim","/iletisim/"]] %}
-    {% for m in menu %}<a href="{{ m[1] }}"{% if page.url.startsWith(m[1]) %} aria-current="page"{% endif %}>{{ m[0] }}</a>{% endfor %}
+    {% for m in ayarlar.menu %}{% if m.goster %}<a href="{{ m.adres }}"{% if page.url and page.url.startsWith(m.adres) %} aria-current="page"{% endif %}>{{ m.ad }}</a>{% endif %}{% endfor %}
   </nav>
 </header>
 <main id="icerik">

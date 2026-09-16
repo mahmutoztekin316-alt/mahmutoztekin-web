@@ -3,7 +3,7 @@ layout: base.njk
 title: Haberler
 ---
 <h1 class="sayfa-baslik">Haberler</h1>
-<div class="haberler">
+<div class="kaydir haberler" tabindex="0">
 {% for h in collections.haberler %}
   <article>
     <p class="tarih">{{ h.data.tarih | tarih }}</p>
