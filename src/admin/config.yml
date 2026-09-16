@@ -1,7 +1,7 @@
 # Mahmut Öztekin — site paneli (Decap CMS)
 backend:
   name: github
-  repo: mahmutoztekin-alt/mahmutoztekin-web
+  repo: mahmutoztekin316-alt/mahmutoztekin-web
   branch: main
   commit_messages:
     create: "Eklendi: {{collection}} “{{slug}}”"
@@ -18,7 +18,7 @@ site_url: https://mahmutoztekin.com
 display_url: https://mahmutoztekin.com
 logo_url: /favicon.svg
 
-media_folder: src/assets/uploads
+media_folder: assets/uploads
 public_folder: /assets/uploads
 
 slug:
