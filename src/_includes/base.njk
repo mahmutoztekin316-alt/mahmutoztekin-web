@@ -1,13 +1,17 @@
-<!doctype html>
-<html lang="tr">
+{% set dil = dil or "tr" %}{% set t = i18n[dil] %}<!doctype html>
+<html lang="{{ dil }}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>{% if title and page.url != "/" %}{{ title }} · {% endif %}{{ ayarlar.site_adi }}</title>
-<meta name="description" content="{{ aciklama or ayarlar.aciklama }}">
+<title>{% if title and page.url != "/" and page.url != "/en/" %}{{ title }} · {% endif %}{{ ayarlar.site_adi }}</title>
+<meta name="description" content="{{ aciklama or t.aciklama }}">
 <meta property="og:title" content="{{ title or ayarlar.site_adi }}">
-<meta property="og:description" content="{{ aciklama or ayarlar.aciklama }}">
-{% if gorsel %}<meta property="og:image" content="{{ ayarlar.site_url }}{{ gorsel }}">{% endif %}
+<meta property="og:description" content="{{ aciklama or t.aciklama }}">
+<meta property="og:image" content="{{ ayarlar.site_url }}{{ gorsel or "/assets/eserler/senin-bahcende-buyuyen-bir-yabaniyim.jpg" }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ ayarlar.site_url }}{{ page.url }}">
+<meta name="twitter:card" content="summary_large_image">
+{% if karsi %}<link rel="alternate" hreflang="{{ 'en' if dil == 'tr' else 'tr' }}" href="{{ ayarlar.site_url }}{{ karsi }}">{% endif %}
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,12 +20,15 @@
 {% if ayarlar.istatistik_kodu %}<script data-goatcounter="https://{{ ayarlar.istatistik_kodu }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>{% endif %}
 </head>
 <body class="{{ govde_sinifi }}">
-<a class="atla" href="#icerik">İçeriğe geç</a>
+<a class="atla" href="#icerik">{{ t.atla }}</a>
 <header class="ust">
-  <a class="isim" href="/">{{ ayarlar.site_adi }}</a>
-  <button class="menu-dugme" type="button" aria-expanded="false" aria-controls="menu">Menü</button>
-  <nav id="menu" class="menu" aria-label="Ana menü">
-    {% for m in ayarlar.menu %}{% if m.goster %}<a href="{{ m.adres }}"{% if page.url and page.url.startsWith(m.adres) %} aria-current="page"{% endif %}>{{ m.ad }}</a>{% endif %}{% endfor %}
+  <a class="isim" href="{{ '/en/' if dil == 'en' else '/' }}">{{ ayarlar.site_adi }}</a>
+  <div class="ust-sag">
+    <a class="dil" href="{{ karsi or ('/' if dil == 'en' else '/en/') }}" lang="{{ 'en' if dil == 'tr' else 'tr' }}" hreflang="{{ 'en' if dil == 'tr' else 'tr' }}" aria-label="{{ t.dil_etiket }}">{{ t.dil }}</a>
+    <button class="menu-dugme" type="button" aria-expanded="false" aria-controls="menu">{{ t.menu }}</button>
+  </div>
+  <nav id="menu" class="menu" aria-label="Menu">
+    {% for m in ayarlar.menu %}{% if m.goster %}{% set adres = m.adres_en if dil == 'en' else m.adres %}<a href="{{ adres }}"{% if page.url and page.url.startsWith(adres) %} aria-current="page"{% endif %}>{{ m.ad_en if dil == 'en' else m.ad }}</a>{% endif %}{% endfor %}
   </nav>
 </header>
 <main id="icerik">

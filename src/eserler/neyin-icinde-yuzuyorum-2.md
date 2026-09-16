@@ -1,5 +1,6 @@
 ---
 title: Neyin İçinde Yüzüyorum II
+title_en: "What Am I Swimming In II"
 yil: 2022
 sira: 4
 gorsel: /assets/eserler/neyin-icinde-yuzuyorum-2.jpg

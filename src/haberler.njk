@@ -1,15 +1,19 @@
 ---
 layout: base.njk
 title: Haberler
+dil: tr
+karsi: /en/news/
 ---
-<h1 class="sayfa-baslik">Haberler</h1>
+{% set dil = dil or "tr" %}{% set t = i18n[dil] %}
+<h1 class="sayfa-baslik">{{ t.haberler }}</h1>
 <div class="kaydir haberler" tabindex="0">
 {% for h in collections.haberler %}
   <article>
-    <p class="tarih">{{ h.data.tarih | tarih }}</p>
-    <h2>{{ h.data.title }}</h2>
+    <p class="tarih">{{ h.data.tarih | tarihEn if dil == "en" else h.data.tarih | tarih }}</p>
+    <h2>{{ h.data.title_en if (dil == "en" and h.data.title_en) else h.data.title }}</h2>
     {% if h.data.gorsel %}<img src="{{ h.data.gorsel }}" alt="" loading="lazy">{% endif %}
-    <div class="metin">{{ h.content | safe }}</div>
+    <div class="metin">{% if dil == "en" and h.data.govde_en %}{{ h.data.govde_en | paragraflar | safe }}{% else %}{{ h.content | safe }}{% endif %}
+    {% if h.data.baglantilar and h.data.baglantilar.length %}<p class="baglantilar">{% for b in h.data.baglantilar %}{% if not loop.first %} · {% endif %}<a href="{{ b.url }}" rel="noopener">{{ b.ad_en if (dil == "en" and b.ad_en) else b.ad }}</a>{% endfor %}</p>{% endif %}</div>
   </article>
 {% endfor %}
 </div>

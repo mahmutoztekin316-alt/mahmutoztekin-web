@@ -14,6 +14,10 @@ a:hover{color:var(--kirmizi)}
 
 /* üst */
 .ust{flex:none;position:relative;z-index:10;background:#2f4a78 url("/assets/ust-gul.jpg") repeat-x left center/auto 100px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:clamp(12px,2.4vh,22px) var(--kenar);border-bottom:1px solid var(--cizgi)}
+.ust-sag{display:flex;align-items:center;gap:14px;order:3}
+.dil{font-size:12px;font-weight:500;letter-spacing:.06em;text-decoration:none;border:1px solid rgba(255,255,255,.7);border-radius:999px;padding:3px 9px;text-shadow:none}
+.dil:hover{color:#fff;background:rgba(255,255,255,.15)}
+@media (min-width:861px){.ust{gap:24px}.menu{order:2;margin-left:auto}.ust-sag{order:3}}
 .isim{font-weight:500;font-size:18px;text-decoration:none;letter-spacing:.01em;text-shadow:0 1px 2px rgba(0,20,60,.6)}
 .isim:hover{color:#fff}
 .menu{display:flex;gap:22px;flex-wrap:wrap}
@@ -47,15 +51,19 @@ h2{font-weight:500}
 .bant{height:18px;background:
   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18'%3E%3Cpath d='M9 2L16 9L9 16L2 9Z' fill='none' stroke='%238E1B24' stroke-width='1.2'/%3E%3C/svg%3E") repeat-x center/18px 18px;
   border-top:1px solid var(--kirmizi);border-bottom:1px solid var(--kirmizi)}
-hr.ayrac{border:0;height:14px;margin:32px 0;background:
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath d='M7 1.5L12.5 7L7 12.5L1.5 7Z' fill='none' stroke='%238E1B24' stroke-width='1'/%3E%3C/svg%3E") repeat-x center/14px 14px;max-width:112px}
+.bosluk{height:28px}
 
 /* alt */
 .alt{flex:none}
 .alt .bant{margin:0 var(--kenar)}
 .alt .bant{height:22px;background:url("/assets/alt-bant.svg") repeat-x center/64px 22px;border-top:1px solid var(--kirmizi);border-bottom:1px solid var(--kirmizi)}
 .alt-satir{display:flex;justify-content:space-between;flex-wrap:wrap;gap:2px 24px;padding:clamp(6px,1.4vh,14px) var(--kenar) max(clamp(8px,1.6vh,16px),env(safe-area-inset-bottom));font-size:12px;color:var(--gri)}
-@media (max-width:600px){.alt-satir span:first-child{display:none}}
+@media (max-width:600px){
+  .alt-satir span:first-child{display:none}
+  body{font-size:15px}
+  .metin p,.uzun p{font-size:15px;line-height:1.55}
+  .alt .bant{height:16px;background-size:46px 16px}
+}
 
 /* ana sayfa */
 .kahraman{flex:1;min-height:0;display:flex;flex-direction:column;padding:clamp(12px,3vh,32px) 0 clamp(10px,2vh,20px)}
@@ -96,6 +104,7 @@ hr.ayrac{border:0;height:14px;margin:32px 0;background:
 .kunye .not{font-size:14px}
 .durum a{color:var(--kirmizi);text-decoration:none;border-bottom:1px solid var(--kirmizi)}
 .durum.yok{color:var(--gri)}
+.durum .satis{color:var(--gri);border-bottom-color:var(--cizgi);margin-left:12px;font-size:14px}
 .duvarda-gor{font:inherit;font-size:14px;background:none;border:1px solid var(--murekkep);border-radius:999px;padding:7px 16px;margin-top:6px;cursor:pointer;color:var(--murekkep)}
 .kavramsal{margin-top:28px;border-top:1px solid var(--cizgi);padding-top:18px;font-size:15px;max-width:62ch}
 details summary{cursor:pointer;color:var(--gri);font-size:14px;margin:6px 0}
@@ -135,11 +144,14 @@ details[open] summary{margin-bottom:10px}
 .metin p{margin:0 0 1em;text-align:justify;hyphens:auto;-webkit-hyphens:auto}
 .giris,.kavramsal p,.eser-metni p,.haberler .metin p,.sanatci-metni p{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
 .hakkinda .kaydir.metin{max-width:none}
-.hakkinda .kaydir hr.ayrac{margin:24px 0}
 @media (max-width:760px){
-  .hakkinda{grid-template-columns:1fr;grid-template-rows:minmax(0,34%) minmax(0,1fr);gap:16px}
-  .portre-kutu{justify-content:center}
-  .portre{max-width:100%}
+  /* telefonda portre ve metin tek kutuda birlikte kayar */
+  .hakkinda{display:flex;flex-direction:column;overflow-y:auto;overscroll-behavior:contain;padding-right:4px;gap:0}
+  .portre-kutu{flex:none;display:block}
+  .portre{height:auto;width:100vw;margin:0 calc(-1 * var(--kenar));max-width:none;content:url("/assets/portre-genis.jpg")}
+  .hakkinda-sag{flex:none;overflow:visible;margin-top:14px}
+  .hakkinda .kaydir{flex:none;overflow:visible;padding-bottom:16px}
+  .baslik-satir{margin-bottom:8px}
 }
 
 /* metin */
@@ -157,7 +169,21 @@ details[open] summary{margin-bottom:10px}
 .liste{margin:0 0 40px;max-width:900px}
 .liste h2{font-size:15px;color:var(--gri);margin:0 0 8px}
 .liste ul{list-style:none;margin:0;padding:0}
-.liste li{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--cizgi)}
+.liste li{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--cizgi);align-items:start}
+.liste li.gorselli{grid-template-columns:64px 1fr 96px}
+.kucuk-gorsel{position:relative;padding:0;border:0;background:var(--krem);cursor:pointer;width:96px;height:72px;overflow:hidden;border-radius:3px}
+.kucuk-gorsel img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.kucuk-gorsel:hover img{transform:scale(1.06)}
+.kucuk-gorsel .adet{position:absolute;right:5px;bottom:4px;background:rgba(20,20,20,.75);color:#fff;font-size:11px;padding:1px 6px;border-radius:999px}
+@media (max-width:600px){.liste li.gorselli{grid-template-columns:48px 1fr 72px}.kucuk-gorsel{width:72px;height:54px}.liste li{grid-template-columns:48px 1fr}}
+.galeri{border:0;padding:0;background:transparent;max-width:min(96vw,1100px);max-height:96vh}
+.galeri::backdrop{background:rgba(20,20,20,.88)}
+.galeri figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:10px}
+.galeri img{max-width:min(96vw,1100px);max-height:80vh;width:auto;height:auto;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.galeri figcaption{color:#fff;font-size:14px}
+.galeri-kapat{position:fixed;top:14px;right:18px;font:inherit;font-size:28px;line-height:1;background:none;border:0;color:#fff;cursor:pointer}
+.galeri-nav{display:flex;justify-content:center;align-items:center;gap:22px;margin-top:10px;color:#fff;font-size:14px}
+.galeri-nav button{font:inherit;font-size:20px;background:none;border:1px solid rgba(255,255,255,.6);border-radius:999px;color:#fff;width:40px;height:40px;cursor:pointer}
 .liste strong{font-weight:500}
 .liste .yil{color:var(--gri)}
 .liste.tek li{grid-template-columns:1fr}
@@ -166,6 +192,7 @@ details[open] summary{margin-bottom:10px}
 .haberler{max-width:720px}
 .haberler article:last-child{border-bottom:0}
 .haberler article{padding:0 0 28px;margin:0 0 28px;border-bottom:1px solid var(--cizgi)}
+.haberler article img{max-height:320px;width:auto;margin:6px 0 14px;background:var(--krem)}
 .haberler .tarih{color:var(--gri);font-size:13px;margin:0}
 .haberler h2{font-size:20px;margin:4px 0 10px}
 

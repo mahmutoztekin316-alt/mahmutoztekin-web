@@ -1,5 +1,6 @@
 ---
 title: Huzursuzluğun İçinden Seçeceğim
+title_en: "I Will Choose from Within the Unrest"
 yil: 2023
 sira: 2
 gorsel: /assets/eserler/huzursuzlugun-icinden-secegim.jpg
@@ -12,6 +13,7 @@ detaylar:
 - /assets/detay/his-kesit.jpg
 - /assets/detay/his-doku.jpg
 sergi_gecmisi: []
-durum: Fiyat için iletişim
+durum: Mevcut değil
+koleksiyon: "Hanna ve Samu Salo Koleksiyonu"
 yayinda: true
 ---

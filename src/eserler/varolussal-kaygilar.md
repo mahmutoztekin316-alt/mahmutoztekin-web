@@ -1,5 +1,6 @@
 ---
 title: Varoluşsal Kaygılar
+title_en: "Existential Anxieties"
 yil: 2023
 sira: 1
 gorsel: /assets/eserler/varolussal-kaygilar.jpg

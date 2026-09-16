@@ -2,57 +2,60 @@
 layout: base.njk
 govde_sinifi: eser-sayfa
 ---
-{% set k = collections.eserler | komsular(page.url) %}
+{% set dil = dil or "tr" %}{% set t = i18n[dil] %}
+{% if eser %}{% set d = eser.data %}{% set kendiUrl = page.url %}{% else %}{% set d = {title: title, title_en: title_en, yil: yil, gorsel: gorsel, teknik: teknik, parca: parca, yukseklik: yukseklik, genislik: genislik, her_biri: her_biri, notu: notu, notu_en: notu_en, durum: durum, koleksiyon: koleksiyon, satis_baglantisi: satis_baglantisi, kavramsal_metin: kavramsal_metin, detaylar: detaylar, sergi_gecmisi: sergi_gecmisi} %}{% set kendiUrl = page.url %}{% endif %}
+{% set baslik = d.title_en if (dil == "en" and d.title_en) else d.title %}
+{% set k = collections.eserler | komsular(kendiUrl) %}
 <article class="eser">
   <div class="duvar">
-    <img src="{{ gorsel }}" alt="{{ title }}, {{ yil }}">
+    <img src="{{ d.gorsel }}" alt="{{ baslik }}, {{ d.yil }}">
   </div>
   <div class="eser-bilgi kaydir" tabindex="0">
     <header class="kunye">
-      <h1>{{ title }}</h1>
-      <p>{{ yil }}<br>{{ teknik }}{% if parca %}, {{ parca }}{% endif %}{% set olc = {yukseklik: yukseklik, genislik: genislik, her_biri: her_biri} | olcu %}{% if olc %}<br>{{ olc }}{% endif %}</p>
-      {% if notu %}<p class="not">{{ notu }}</p>{% endif %}
-      <p class="durum"><a href="mailto:{{ ayarlar.eposta }}?subject={{ ('Fiyat bilgisi: ' + title + ' (' + yil + ')') | urlencode }}">{{ durum or "Fiyat için iletişim" }}</a></p>
-      {% if yukseklik and genislik and not her_biri and not parca %}
-      <button class="duvarda-gor" type="button" data-y="{{ yukseklik }}" data-g="{{ genislik }}" data-src="{{ gorsel }}">Duvarda gör</button>
+      <h1>{{ baslik }}</h1>
+      <p>{{ d.yil }}<br>{{ d.teknik | teknikEn if dil == "en" else d.teknik }}{% if d.parca %}, {{ d.parca | parcaEn if dil == "en" else d.parca }}{% endif %}{% set olc = {yukseklik: d.yukseklik, genislik: d.genislik, her_biri: d.her_biri} | olcu(dil) %}{% if olc %}<br>{{ olc }}{% endif %}</p>
+      {% set notMetin = d.notu_en if (dil == "en" and d.notu_en) else d.notu %}{% if notMetin %}<p class="not">{{ notMetin }}</p>{% endif %}
+      {% if d.durum == "Mevcut değil" or d.durum == "Satıldı" or d.durum == "Koleksiyonda" %}
+      <p class="durum yok">{{ t.mevcut_degil }}{% if d.koleksiyon and ayarlar.koleksiyon_goster %} · {{ d.koleksiyon }}{% endif %}</p>
+      {% else %}
+      <p class="durum"><a href="mailto:{{ ayarlar.eposta }}?subject={{ (t.fiyat_konu + ': ' + baslik + ' (' + d.yil + ')') | urlencode }}">{{ t.fiyat }}</a>{% if d.satis_baglantisi %} <a class="satis" href="{{ d.satis_baglantisi }}" rel="noopener">{{ t.offgrid }}</a>{% endif %}</p>
+      {% endif %}
+      {% if d.yukseklik and d.genislik and not d.her_biri and not d.parca %}
+      <button class="duvarda-gor" type="button" data-y="{{ d.yukseklik }}" data-g="{{ d.genislik }}" data-src="{{ d.gorsel }}">{{ t.duvarda }}</button>
       {% endif %}
     </header>
 
-    {% if content | trim %}<div class="eser-metni">{{ content | safe }}</div>{% endif %}
-
-    {% if kavramsal_metin and kavramsal.govde %}
+    {% if d.kavramsal_metin and kavramsal.govde %}
     <div class="kavramsal">
-      {{ kavramsal.govde | ilkParagraf | paragraflar | safe }}
-      <details><summary>Devamını oku</summary>{{ kavramsal.govde | kalanParagraflar | paragraflar | safe }}</details>
+      {{ (kavramsal.govde_en if (dil == "en" and kavramsal.govde_en) else kavramsal.govde) | paragraflar | safe }}
     </div>
     {% endif %}
 
-    {% if detaylar and detaylar.length %}
-    <section class="detaylar" aria-label="Detaylar">
-      {% for d in detaylar %}<img src="{{ d }}" alt="{{ title }}, detay {{ loop.index }}" loading="lazy">{% endfor %}
+    {% if d.detaylar and d.detaylar.length %}
+    <section class="detaylar" aria-label="{{ t.detay }}">
+      {% for x in d.detaylar %}<img src="{{ x }}" alt="{{ baslik }}, {{ t.detay }} {{ loop.index }}" loading="lazy">{% endfor %}
     </section>
     {% endif %}
 
-    {% if sergi_gecmisi and sergi_gecmisi.length %}
+    {% if d.sergi_gecmisi and d.sergi_gecmisi.length %}
     <section class="sergi-gecmisi">
-      <h2>Sergi geçmişi</h2>
-      <ul>{% for s in sergi_gecmisi %}<li>{{ s }}</li>{% endfor %}</ul>
+      <h2>{{ t.sergi_gecmisi }}</h2>
+      <ul>{% for s in d.sergi_gecmisi %}<li>{{ s }}</li>{% endfor %}</ul>
     </section>
     {% endif %}
 
-    <nav class="komsu" aria-label="Diğer eserler">
-      {% if k.onceki %}<a href="{{ k.onceki.url }}">← {{ k.onceki.data.title }}</a>{% else %}<span></span>{% endif %}
-      <a href="/eserler/">Tüm eserler</a>
-      {% if k.sonraki %}<a href="{{ k.sonraki.url }}">{{ k.sonraki.data.title }} →</a>{% else %}<span></span>{% endif %}
+    <nav class="komsu" aria-label="{{ t.diger_eserler }}">
+      {% if k.onceki %}<a href="{{ k.onceki | enUrl if dil == 'en' else k.onceki.url }}">← {{ k.onceki.data.title_en if dil == 'en' else k.onceki.data.title }}</a>{% else %}<span></span>{% endif %}
+      <a href="{{ '/en/works/' if dil == 'en' else '/eserler/' }}">{{ t.tum_eserler }}</a>
+      {% if k.sonraki %}<a href="{{ k.sonraki | enUrl if dil == 'en' else k.sonraki.url }}">{{ k.sonraki.data.title_en if dil == 'en' else k.sonraki.data.title }} →</a>{% else %}<span></span>{% endif %}
     </nav>
   </div>
 </article>
 
-
-<dialog class="sahne-kutu" aria-label="Duvarda görünüm">
+<dialog class="sahne-kutu" aria-label="{{ t.duvarda }}">
   <div class="sahne"><div class="sahne-eser"><img alt=""></div><div class="kanepe" aria-hidden="true"></div></div>
-  <p class="sahne-not">Ölçek: 2 metrelik bir kanepe.</p>
-  <form method="dialog"><button>Kapat</button></form>
+  <p class="sahne-not">{{ t.olcek }}</p>
+  <form method="dialog"><button>{{ t.kapat }}</button></form>
 </dialog>
 <script>
 const b=document.querySelector('.duvarda-gor');

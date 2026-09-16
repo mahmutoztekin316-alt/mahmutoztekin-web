@@ -1,5 +1,6 @@
 ---
 title: Ben ve Öteki 2
+title_en: "Me and the Other 2"
 yil: 2025
 sira: 11
 gorsel: /assets/eserler/ben-ve-oteki-2.jpg

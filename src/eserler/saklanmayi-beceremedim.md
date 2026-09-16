@@ -1,5 +1,6 @@
 ---
 title: Saklanmayı Beceremedim
+title_en: "I Failed to Hide"
 yil: 2026
 sira: 3
 gorsel: /assets/eserler/saklanmayi-beceremedim.jpg

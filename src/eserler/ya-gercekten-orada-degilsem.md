@@ -1,5 +1,6 @@
 ---
 title: Ya Gerçekten Orada Değilsem
+title_en: "What If I Am Really Not There"
 yil: 2024
 sira: 9
 gorsel: /assets/eserler/ya-gercekten-orada-degilsem.jpg
@@ -10,6 +11,7 @@ kavramsal_metin: true
 detaylar:
 - /assets/detay/ygod-kesit.jpg
 sergi_gecmisi: []
-durum: Fiyat için iletişim
+durum: Mevcut değil
+koleksiyon: "Ceyda Özdemir Ertan Koleksiyonu"
 yayinda: true
 ---

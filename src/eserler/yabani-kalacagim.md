@@ -1,5 +1,6 @@
 ---
 title: Yabani Kalacağım
+title_en: "I Will Stay Wild"
 yil: 2025
 sira: 8
 gorsel: /assets/eserler/yabani-kalacagim.jpg

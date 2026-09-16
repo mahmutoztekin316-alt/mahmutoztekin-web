@@ -1,5 +1,6 @@
 ---
 title: Fark Edildim
+title_en: "I Was Noticed"
 yil: 2026
 sira: 13
 gorsel: /assets/eserler/fark-edildim.jpg
@@ -9,7 +10,8 @@ genislik: 17
 her_biri: false
 kavramsal_metin: false
 detaylar: []
-sergi_gecmisi: []
+sergi_gecmisi:
+  - Offgridart, Offgrid Art Shop, İstanbul, 2026
 durum: Fiyat için iletişim
 yayinda: true
 ---

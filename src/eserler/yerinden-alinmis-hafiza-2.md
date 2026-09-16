@@ -1,5 +1,6 @@
 ---
 title: Yerinden Alınmış Hafıza 2
+title_en: "Displaced Memory 2"
 yil: 2025
 sira: 5
 gorsel: /assets/eserler/yerinden-alinmis-hafiza-2.jpg

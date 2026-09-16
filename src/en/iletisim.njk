@@ -1,0 +1,12 @@
+---
+layout: base.njk
+title: Contact
+dil: en
+karsi: /iletisim/
+permalink: /en/contact/
+---
+{% set dil = dil or "tr" %}{% set t = i18n[dil] %}
+<h1 class="sayfa-baslik">{{ t.iletisim }}</h1>
+<p class="buyuk"><a href="mailto:{{ ayarlar.eposta }}">{{ ayarlar.eposta }}</a></p>
+<p>{{ t.iletisim_metin }}</p>
+<p><a href="{{ ayarlar.instagram }}" rel="noopener">Instagram {{ ayarlar.instagram_ad }}</a></p>

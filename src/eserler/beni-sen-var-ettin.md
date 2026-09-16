@@ -1,5 +1,6 @@
 ---
 title: Beni Sen Var Ettin
+title_en: "You Brought Me into Being"
 yil: 2023
 sira: 5
 gorsel: /assets/eserler/beni-sen-var-ettin.jpg
@@ -10,6 +11,7 @@ her_biri: false
 kavramsal_metin: true
 detaylar: []
 sergi_gecmisi: []
-durum: Fiyat için iletişim
+durum: Mevcut değil
+koleksiyon: "Erdal Güner Koleksiyonu"
 yayinda: true
 ---

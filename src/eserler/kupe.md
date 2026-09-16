@@ -1,5 +1,6 @@
 ---
 title: Küpe
+title_en: "Earring"
 yil: 2022
 sira: 1
 gorsel: /assets/eserler/kupe.jpg
@@ -10,6 +11,7 @@ parca: 6 parça
 her_biri: true
 kavramsal_metin: true
 notu: 'Sıra: I erkek, II kadın, III çocuk, IV köpek, V inek, VI kafatası.'
+notu_en: "Order: I man, II woman, III child, IV dog, V cow, VI skull."
 detaylar:
 - /assets/detay/kupe-1.jpg
 - /assets/detay/kupe-2.jpg
@@ -19,6 +21,7 @@ detaylar:
 - /assets/detay/kupe-6.jpg
 sergi_gecmisi:
 - Bazaart Projesi, Bazaart, İstanbul, 2023
-durum: Fiyat için iletişim
+durum: Mevcut değil
+koleksiyon: ""
 yayinda: true
 ---

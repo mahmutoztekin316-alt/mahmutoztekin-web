@@ -1,5 +1,6 @@
 ---
 title: Bu His Beni Huzursuz Ediyor
+title_en: "This Feeling Unsettles Me"
 yil: 2024
 sira: 10
 gorsel: /assets/eserler/bu-his-beni-huzursuz-ediyor.jpg

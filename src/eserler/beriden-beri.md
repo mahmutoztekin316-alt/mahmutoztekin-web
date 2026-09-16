@@ -1,5 +1,6 @@
 ---
 title: Beriden Beri
+title_en: "Ever Since"
 yil: 2024
 sira: 1
 gorsel: /assets/eserler/beriden-beri.jpg

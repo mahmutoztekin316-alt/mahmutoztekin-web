@@ -1,5 +1,6 @@
 ---
 title: Huzursuzluk Yakmıyor Bedenimi 2
+title_en: "Unrest Does Not Burn My Body 2"
 yil: 2023
 sira: 4
 gorsel: /assets/eserler/huzursuzluk-yakmiyor-bedenimi-2.jpg

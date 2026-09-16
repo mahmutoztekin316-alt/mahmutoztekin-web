@@ -1,5 +1,6 @@
 ---
 title: Neyin İçinde Yüzüyorum I
+title_en: "What Am I Swimming In I"
 yil: 2022
 sira: 3
 gorsel: /assets/eserler/neyin-icinde-yuzuyorum-1.jpg
@@ -11,6 +12,7 @@ kavramsal_metin: true
 detaylar: []
 sergi_gecmisi:
 - On The Wall Summer, The Wall Art Gallery, İstanbul, 2023
-durum: Fiyat için iletişim
+durum: Mevcut değil
+koleksiyon: "Ferhan Karaselçuk Koleksiyonu"
 yayinda: true
 ---

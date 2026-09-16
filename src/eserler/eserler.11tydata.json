@@ -1,1 +1,1 @@
-{ "layout": "eser.njk", "permalink": "/eserler/{{ page.fileSlug }}/" }
+{"layout": "eser.njk", "permalink": "/eserler/{{ page.fileSlug }}/", "dil": "tr", "eleventyComputed": {"karsi": "/en/works/{{ page.fileSlug }}/"}}

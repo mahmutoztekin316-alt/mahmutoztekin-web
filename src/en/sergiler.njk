@@ -1,0 +1,38 @@
+---
+layout: base.njk
+title: Exhibitions
+dil: en
+karsi: /sergiler/
+permalink: /en/exhibitions/
+---
+{% set dil = dil or "tr" %}{% set t = i18n[dil] %}
+<h1 class="sayfa-baslik">{{ t.sergiler }}</h1>
+<div class="kaydir" tabindex="0">
+{% set bolumler = [[t.sergiler, sergiler.sergiler], [t.rezidanslar, sergiler.rezidanslar], [t.atolyeler, sergiler.atolyeler]] %}
+{% for b in bolumler %}
+<section class="liste">
+  <h2>{{ b[0] }}</h2>
+  <ul>
+  {% for s in b[1] %}{% set ad = s.ad_en if (dil == "en" and s.ad_en) else s.ad %}{% set yer = s.yer_en if (dil == "en" and s.yer_en) else s.yer %}{% set ac = s.aciklama_en if (dil == "en" and s.aciklama_en) else s.aciklama %}
+    <li{% if s.gorseller and s.gorseller.length %} class="gorselli"{% endif %}><span class="yil">{{ s.yil }}</span><span><strong>{{ ad }}</strong>{% if yer %}, {{ yer }}{% endif %}{% if ac %}<br><small>{{ ac }}</small>{% endif %}</span>{% if s.gorseller and s.gorseller.length %}<button class="kucuk-gorsel" type="button" data-gorseller="{{ s.gorseller | join(',') }}" data-ad="{{ ad }}" aria-label="{{ ad }}: {{ s.gorseller.length }} {{ 'image' if dil == 'en' else 'görsel' }}"><img src="{{ s.gorseller[0] }}" alt="" loading="lazy">{% if s.gorseller.length > 1 %}<span class="adet">{{ s.gorseller.length }}</span>{% endif %}</button>{% endif %}</li>
+  {% endfor %}
+  </ul>
+</section>
+{% endfor %}
+<p class="kucuk">{{ t.karma }}</p>
+</div>
+<dialog class="galeri" aria-label="{{ t.sergiler }}">
+  <button class="galeri-kapat" type="button" aria-label="{{ t.kapat }}">×</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <div class="galeri-nav"><button type="button" class="onceki" aria-label="←">←</button><span class="sayac"></span><button type="button" class="sonraki" aria-label="→">→</button></div>
+</dialog>
+<script>
+(()=>{const g=document.querySelector('.galeri');if(!g)return;const img=g.querySelector('img'),cap=g.querySelector('figcaption'),say=g.querySelector('.sayac');let L=[],i=0,ad='';
+const goster=()=>{img.src=L[i];cap.textContent=ad;say.textContent=L.length>1?(i+1)+' / '+L.length:'';g.querySelector('.galeri-nav').style.visibility=L.length>1?'visible':'hidden';};
+document.querySelectorAll('.kucuk-gorsel').forEach(b=>b.addEventListener('click',()=>{L=b.dataset.gorseller.split(',');ad=b.dataset.ad;i=0;goster();g.showModal();}));
+g.querySelector('.onceki').addEventListener('click',()=>{i=(i-1+L.length)%L.length;goster();});
+g.querySelector('.sonraki').addEventListener('click',()=>{i=(i+1)%L.length;goster();});
+g.querySelector('.galeri-kapat').addEventListener('click',()=>g.close());
+g.addEventListener('click',e=>{if(e.target===g)g.close();});
+g.addEventListener('keydown',e=>{if(e.key==='ArrowRight')g.querySelector('.sonraki').click();if(e.key==='ArrowLeft')g.querySelector('.onceki').click();});})();
+</script>

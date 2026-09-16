@@ -1,5 +1,6 @@
 ---
 title: Toprağın Dışında Kök
+title_en: "Root Outside the Soil"
 yil: 2026
 sira: 2
 gorsel: /assets/eserler/topragin-disinda-kok.jpg

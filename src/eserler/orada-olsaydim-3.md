@@ -1,5 +1,6 @@
 ---
 title: Orada Olsaydım III
+title_en: "If I Had Been There III"
 yil: 2024
 sira: 5
 gorsel: /assets/eserler/orada-olsaydim-3.jpg
@@ -11,5 +12,6 @@ kavramsal_metin: true
 detaylar: []
 sergi_gecmisi: []
 durum: Fiyat için iletişim
+satis_baglantisi: https://www.offgridartshop.com
 yayinda: true
 ---

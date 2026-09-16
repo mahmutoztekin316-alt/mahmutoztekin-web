@@ -1,5 +1,6 @@
 ---
 title: Aşağı Kabul Etmedi
+title_en: "The Ground Would Not Take Me"
 yil: 2026
 sira: 9
 gorsel: /assets/eserler/asagi-kabul-etmedi.jpg
@@ -9,7 +10,8 @@ genislik: 17
 her_biri: false
 kavramsal_metin: false
 detaylar: []
-sergi_gecmisi: []
+sergi_gecmisi:
+  - Offgridart, Offgrid Art Shop, İstanbul, 2026
 durum: Fiyat için iletişim
 yayinda: true
 ---

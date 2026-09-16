@@ -1,5 +1,6 @@
 ---
 title: Göç Eden Kök
+title_en: "Migrating Root"
 yil: 2025
 sira: 7
 gorsel: /assets/eserler/goc-eden-kok.jpg

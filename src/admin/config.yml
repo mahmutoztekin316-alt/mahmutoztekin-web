@@ -42,6 +42,7 @@ collections:
     fields:
       - { label: "Eser adı", name: title, widget: string }
       - { label: "Yıl", name: yil, widget: number, value_type: int }
+      - { label: "Ad (İngilizce)", name: title_en, widget: string, required: false }
       - { label: "Yıl içindeki sıra", name: sira, widget: number, value_type: int, default: 1, hint: "Eserler sayfasında o yılın şeridindeki yeri. 1 en başta." }
       - { label: "Ana görsel", name: gorsel, widget: image, hint: "Uzun kenarı 1600 piksel civarında, JPG." }
       - { label: "Teknik", name: teknik, widget: string, default: "Tuval üzerine yağlı boya" }
@@ -51,9 +52,10 @@ collections:
       - { label: "Ölçü her bir parça için mi?", name: her_biri, widget: boolean, default: false }
       - { label: "Kavramsal metin görünsün mü?", name: kavramsal_metin, widget: boolean, default: false, hint: "Ben ve Öteki ve öncesindeki işlerde açık." }
       - { label: "Kısa not", name: notu, widget: text, required: false }
+      - { label: "Kısa not (İngilizce)", name: notu_en, widget: text, required: false }
       - { label: "Detay fotoğrafları", name: detaylar, widget: list, required: false, field: { label: Görsel, name: gorsel, widget: image } }
       - { label: "Sergi geçmişi", name: sergi_gecmisi, widget: list, required: false, field: { label: Sergi, name: sergi, widget: string }, hint: "Örn. Görüngüler, Artuklu, Mardin, 2026" }
-      - { label: "Durum", name: durum, widget: select, options: ["Fiyat için iletişim", "Koleksiyonda", "Satıldı"], default: "Fiyat için iletişim" }
+      - { label: "Durum", name: durum, widget: select, options: ["Fiyat için iletişim", "Mevcut değil"], default: "Fiyat için iletişim" }
       - { label: "Sitede görünsün", name: yayinda, widget: boolean, default: true }
       - { label: "Eser metni", name: body, widget: markdown, required: false, hint: "Şimdilik boş." }
 
@@ -70,6 +72,16 @@ collections:
       - { label: "Tarih", name: tarih, widget: datetime, date_format: "DD.MM.YYYY", time_format: false, format: "YYYY-MM-DD" }
       - { label: "Görsel", name: gorsel, widget: image, required: false }
       - { label: "Metin", name: body, widget: markdown }
+      - { label: "Başlık (İngilizce)", name: title_en, widget: string, required: false }
+      - { label: "Metin (İngilizce)", name: govde_en, widget: text, required: false }
+      - label: Bağlantılar
+        name: baglantilar
+        widget: list
+        required: false
+        fields:
+          - { label: "Ad", name: ad, widget: string }
+          - { label: "Ad (İngilizce)", name: ad_en, widget: string, required: false }
+          - { label: "Adres (URL)", name: url, widget: string }
 
   - name: sayfalar
     label: Sayfalar
@@ -78,8 +90,10 @@ collections:
         name: anasayfa
         file: src/_data/anasayfa.json
         fields:
-          - { label: "Ana sayfadaki eser", name: eser, widget: relation, collection: eserler, value_field: "{{slug}}", search_fields: [title], display_fields: ["{{title}} ({{yil}})"] }
+          - { label: "Ana sayfada dönen eserler", name: eserler, widget: relation, collection: eserler, value_field: "{{slug}}", search_fields: [title], display_fields: ["{{title}} ({{yil}})"], multiple: true, hint: "Sırayla gösterilir. Tek eser seçilirse dönmez." }
+          - { label: "Her eser kaç saniye kalsın", name: sure, widget: number, value_type: int, default: 7 }
           - { label: "Düğme yazısı", name: buton, widget: string }
+          - { label: "Düğme yazısı (İngilizce)", name: buton_en, widget: string, required: false }
       - label: Hakkında
         name: hakkinda
         file: src/_data/hakkinda.json
@@ -87,6 +101,9 @@ collections:
           - { label: "Portre", name: portre, widget: image }
           - { label: "Biyografi", name: biyografi, widget: text, hint: "Paragrafları bir boş satırla ayırın." }
           - { label: "Sanatçı metni", name: sanatci_metni, widget: text }
+          - { label: "Biyografi (İngilizce)", name: biyografi_en, widget: text, required: false }
+          - { label: "Sanatçı metni (İngilizce)", name: sanatci_metni_en, widget: text, required: false }
+          - { label: "CV İngilizce (PDF)", name: cv_en, widget: file, required: false }
           - { label: "CV (PDF)", name: cv, widget: file }
       - label: Metin
         name: metin
@@ -95,11 +112,15 @@ collections:
           - { label: "Başlık", name: baslik, widget: string }
           - { label: "Alt başlık", name: alt_baslik, widget: string, required: false }
           - { label: "Metin", name: govde, widget: text, hint: "Paragrafları bir boş satırla ayırın. Bölüm ayırmak için tek satıra * * * yazın." }
+          - { label: "Başlık (İngilizce)", name: baslik_en, widget: string, required: false }
+          - { label: "Alt başlık (İngilizce)", name: alt_baslik_en, widget: string, required: false }
+          - { label: "Metin (İngilizce)", name: govde_en, widget: text, required: false }
       - label: Kavramsal metin (eser sayfaları)
         name: kavramsal
         file: src/_data/kavramsal.json
         fields:
           - { label: "Metin", name: govde, widget: text }
+          - { label: "Metin (İngilizce)", name: govde_en, widget: text, required: false }
       - label: Sergiler
         name: sergiler
         file: src/_data/sergiler.json
@@ -113,6 +134,10 @@ collections:
               - { label: "Ad", name: ad, widget: string }
               - { label: "Yer", name: yer, widget: string, required: false }
               - { label: "Açıklama", name: aciklama, widget: string, required: false }
+              - { label: "Ad (İngilizce)", name: ad_en, widget: string, required: false }
+              - { label: "Yer (İngilizce)", name: yer_en, widget: string, required: false }
+              - { label: "Açıklama (İngilizce)", name: aciklama_en, widget: string, required: false }
+              - { label: "Görseller", name: gorseller, widget: list, required: false, field: { label: Görsel, name: gorsel, widget: image }, hint: "Afiş, davetiye ya da sergi duvarı. İlki küçük resim olarak görünür." }
           - { label: "Rezidans programları", name: rezidanslar, widget: list, summary: "{{yil}} · {{ad}}", fields: *satir }
           - { label: "Atölyeler", name: atolyeler, widget: list, summary: "{{yil}} · {{ad}}", fields: *satir }
       - label: Basın
@@ -138,6 +163,21 @@ collections:
             fields:
               - { label: "Görsel", name: gorsel, widget: image }
               - { label: "Açıklama", name: aciklama, widget: string }
+      - label: Videolar (Eserler sayfası)
+        name: videolar
+        file: src/_data/videolar.json
+        fields:
+          - label: Videolar
+            name: videolar
+            widget: list
+            summary: "{{yil}} · {{aciklama}}"
+            hint: "Video, ilgili yılın şeridinin başında görünür. MP4, en fazla 20 MB."
+            fields:
+              - { label: "Yıl", name: yil, widget: number, value_type: int }
+              - { label: "Video dosyası (MP4)", name: dosya, widget: file }
+              - { label: "Kapak görseli", name: kapak, widget: image, required: false }
+              - { label: "Açıklama", name: aciklama, widget: string }
+              - { label: "Açıklama (İngilizce)", name: aciklama_en, widget: string, required: false }
       - label: Site ayarları
         name: ayarlar
         file: src/_data/ayarlar.json
@@ -159,3 +199,5 @@ collections:
               - { label: "Menüdeki ad", name: ad, widget: string }
               - { label: "Adres (değiştirmeyin)", name: adres, widget: string }
               - { label: "Göster", name: goster, widget: boolean, default: true }
+              - { label: "Menüdeki ad (İngilizce)", name: ad_en, widget: string, required: false }
+              - { label: "İngilizce adres (değiştirmeyin)", name: adres_en, widget: string, required: false }

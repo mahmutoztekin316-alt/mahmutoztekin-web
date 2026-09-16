@@ -1,5 +1,6 @@
 ---
 title: Kadın
+title_en: "Woman"
 yil: 2024
 sira: 2
 gorsel: /assets/eserler/kadin.jpg
@@ -11,6 +12,7 @@ her_biri: false
 kavramsal_metin: true
 detaylar: []
 sergi_gecmisi: []
-durum: Fiyat için iletişim
+durum: Mevcut değil
+koleksiyon: "Hanna ve Samu Salo Koleksiyonu"
 yayinda: true
 ---

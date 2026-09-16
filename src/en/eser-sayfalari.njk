@@ -1,0 +1,14 @@
+---
+layout: eser.njk
+dil: en
+pagination:
+  data: collections.eserler
+  size: 1
+  alias: eser
+  addAllPagesToCollections: true
+permalink: "/en/works/{{ eser.fileSlug }}/"
+eleventyComputed:
+  title: "{{ eser.data.title_en }}"
+  karsi: "{{ eser.url }}"
+  gorsel: "{{ eser.data.gorsel }}"
+---

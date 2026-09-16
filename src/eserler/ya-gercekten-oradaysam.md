@@ -1,5 +1,6 @@
 ---
 title: Ya Gerçekten Oradaysam?
+title_en: "What If I Am Really There?"
 yil: 2025
 sira: 9
 gorsel: /assets/eserler/ya-gercekten-oradaysam.jpg

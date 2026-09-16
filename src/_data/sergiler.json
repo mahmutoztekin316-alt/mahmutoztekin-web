@@ -4,73 +4,131 @@
       "yil": 2026,
       "ad": "Offgridart",
       "yer": "İstanbul",
-      "aciklama": "Karma sergi, Offgrid Art Shop açılış sergisi, 13–14 Haziran"
+      "aciklama": "Karma sergi, Offgrid Art Shop açılış sergisi, 13–14 Haziran",
+      "ad_en": "Offgridart",
+      "yer_en": "Istanbul",
+      "aciklama_en": "Group show, opening exhibition of Offgrid Art Shop, 13–14 June",
+      "gorseller": [
+        "/assets/sergiler/offgridart-2.jpg",
+        "/assets/sergiler/offgridart-1.jpg"
+      ]
     },
     {
       "yil": 2026,
       "ad": "Görüngüler",
       "yer": "Artuklu, Mardin",
-      "aciklama": "Karma sergi, bağımsız, 7. Mardin Bienali ile eş zamanlı, 15 Mayıs. Derya Cırık, Mahmut Öztekin, Mehmet Akan"
+      "aciklama": "Karma sergi, bağımsız, 7. Mardin Bienali ile eş zamanlı, 15 Mayıs. Derya Cırık, Mahmut Öztekin, Mehmet Akan",
+      "ad_en": "Görüngüler (Phenomena)",
+      "yer_en": "Artuklu, Mardin",
+      "aciklama_en": "Independent group show held alongside the 7th Mardin Biennial, 15 May. Derya Cırık, Mahmut Öztekin, Mehmet Akan",
+      "gorseller": [
+        "/assets/sergiler/gorunguler-1.jpg",
+        "/assets/sergiler/gorunguler-2.jpg",
+        "/assets/sergiler/gorunguler-3.jpg"
+      ]
     },
     {
       "yil": 2025,
       "ad": "CI BLOOM 2025",
       "yer": "Lütfi Kırdar, İstanbul",
-      "aciklama": "Koli Art Space, 16–20 Nisan"
+      "aciklama": "Koli Art Space, 16–20 Nisan",
+      "ad_en": "CI BLOOM 2025",
+      "yer_en": "Lütfi Kırdar, Istanbul",
+      "aciklama_en": "Koli Art Space, 16–20 April",
+      "gorseller": [
+        "/assets/sergiler/ci-bloom-2025-2.jpg",
+        "/assets/sergiler/ci-bloom-2025-1.jpg"
+      ]
     },
     {
       "yil": 2024,
       "ad": "Sanat Ne Yapar?",
       "yer": "İstanbul",
-      "aciklama": "BASE, 8. edisyon, 27 Kasım–1 Aralık"
+      "aciklama": "BASE, 8. edisyon, 27 Kasım–1 Aralık",
+      "ad_en": "What Does Art Do?",
+      "yer_en": "Istanbul",
+      "aciklama_en": "BASE, 8th edition, 27 November–1 December",
+      "gorseller": [
+        "/assets/sergiler/sanat-ne-yapar-1.jpg"
+      ]
     },
     {
       "yil": 2024,
       "ad": "On The Wall Summer'24",
       "yer": "The Wall Art Gallery, İstanbul",
-      "aciklama": "Karma sergi, 17 Temmuz–7 Eylül"
+      "aciklama": "Karma sergi, 17 Temmuz–7 Eylül",
+      "ad_en": "On The Wall Summer'24",
+      "yer_en": "The Wall Art Gallery, Istanbul",
+      "aciklama_en": "Group show, 17 July–7 September",
+      "gorseller": [
+        "/assets/sergiler/on-the-wall-summer-24-1.jpg"
+      ]
     },
     {
       "yil": 2024,
       "ad": "Görünür Kentlere Ek: Toza Sor",
       "yer": "Mardin",
-      "aciklama": "Karma sergi, bağımsız, 6. Mardin Bienali ile eş zamanlı"
+      "aciklama": "Karma sergi, bağımsız, 6. Mardin Bienali ile eş zamanlı",
+      "ad_en": "Appendix to Visible Cities: Ask the Dust",
+      "yer_en": "Mardin",
+      "aciklama_en": "Independent group show held alongside the 6th Mardin Biennial",
+      "gorseller": [
+        "/assets/sergiler/toza-sor-1.jpg"
+      ]
     },
     {
       "yil": 2023,
       "ad": "Rota: Sanatın İzinde Şehir",
       "yer": "Rıdvan Kutay Gallery, Diyarbakır",
-      "aciklama": "Karma sergi"
+      "aciklama": "Karma sergi",
+      "ad_en": "Route: The City in the Footsteps of Art",
+      "yer_en": "Rıdvan Kutay Gallery, Diyarbakır",
+      "aciklama_en": "Group show"
     },
     {
       "yil": 2023,
       "ad": "On The Wall Summer",
       "yer": "The Wall Art Gallery, İstanbul",
-      "aciklama": "Karma sergi"
+      "aciklama": "Karma sergi",
+      "ad_en": "On The Wall Summer",
+      "yer_en": "The Wall Art Gallery, Istanbul",
+      "aciklama_en": "Group show"
     },
     {
       "yil": 2023,
       "ad": "Antroposen",
       "yer": "Üçgen Sanat Kolektifi",
-      "aciklama": "Karma sergi, çevrimiçi"
+      "aciklama": "Karma sergi, çevrimiçi",
+      "ad_en": "Anthropocene",
+      "yer_en": "Üçgen Art Collective",
+      "aciklama_en": "Group show, online"
     },
     {
       "yil": 2023,
       "ad": "Bazaart Projesi",
       "yer": "Bazaart, İstanbul",
-      "aciklama": "Karma sergi"
+      "aciklama": "Karma sergi",
+      "ad_en": "Bazaart Project",
+      "yer_en": "Bazaart, Istanbul",
+      "aciklama_en": "Group show"
     },
     {
       "yil": 2022,
       "ad": "Organ Bağışı Afiş Sergisi",
       "yer": "Mardin İl Sağlık Müdürlüğü",
-      "aciklama": "Karma sergi"
+      "aciklama": "Karma sergi",
+      "ad_en": "Organ Donation Poster Exhibition",
+      "yer_en": "Mardin Provincial Health Directorate",
+      "aciklama_en": "Group show"
     },
     {
       "yil": 2021,
       "ad": "Uzaktan Desen",
       "yer": "Mardin Artuklu Üniversitesi",
-      "aciklama": "Karma sergi"
+      "aciklama": "Karma sergi",
+      "ad_en": "Drawing from a Distance",
+      "yer_en": "Mardin Artuklu University",
+      "aciklama_en": "Group show"
     }
   ],
   "rezidanslar": [
@@ -78,13 +136,27 @@
       "yil": 2026,
       "ad": "Your True Measure",
       "yer": "Bursa",
-      "aciklama": "Konuk sanatçı programı, Mart"
+      "aciklama": "Konuk sanatçı programı, Mart",
+      "ad_en": "Your True Measure",
+      "yer_en": "Bursa",
+      "aciklama_en": "Guest artist programme, March",
+      "gorseller": [
+        "/assets/sergiler/your-true-measure-1.jpg"
+      ]
     },
     {
       "yil": 2024,
       "ad": "Eşikte Birlikte: Sanatçı ve Küratörler Buluşması II",
       "yer": "Nesin Sanat Köyü, Şirince, İzmir",
-      "aciklama": "24–30 Haziran"
+      "aciklama": "24–30 Haziran",
+      "ad_en": "Together at the Threshold: Artists and Curators Meeting II",
+      "yer_en": "Nesin Art Village, Şirince, İzmir",
+      "aciklama_en": "24–30 June",
+      "gorseller": [
+        "/assets/sergiler/esikte-birlikte-1.jpg",
+        "/assets/sergiler/esikte-birlikte-2.jpg",
+        "/assets/sergiler/esikte-birlikte-3.jpg"
+      ]
     }
   ],
   "atolyeler": [
@@ -92,25 +164,37 @@
       "yil": 2025,
       "ad": "Bir Yeri Düşünmek — Yıkıntılar Arasında",
       "yer": "İstanbul",
-      "aciklama": ""
+      "aciklama": "",
+      "ad_en": "Thinking of a Place — Among the Ruins",
+      "yer_en": "Istanbul",
+      "aciklama_en": ""
     },
     {
       "yil": 2024,
       "ad": "Akan Beden (3. Edisyon)",
       "yer": "Mardin",
-      "aciklama": ""
+      "aciklama": "",
+      "ad_en": "Flowing Body (3rd Edition)",
+      "yer_en": "Mardin",
+      "aciklama_en": ""
     },
     {
       "yil": 2024,
       "ad": "Çoklu Zamansızlıklar ve Ortak Yaşam Pratikleri — Yeryüzü Halleri",
       "yer": "İstanbul",
-      "aciklama": ""
+      "aciklama": "",
+      "ad_en": "Multiple Timelessnesses and Practices of Shared Life — States of the Earth",
+      "yer_en": "Istanbul",
+      "aciklama_en": ""
     },
     {
       "yil": 2024,
       "ad": "Yaşanabilir Dünya İçin Açık Uçlu Toplaşmalar — Tiyatro ve Performans Atölyesi",
       "yer": "Mardin",
-      "aciklama": ""
+      "aciklama": "",
+      "ad_en": "Open-Ended Gatherings for a Liveable World — Theatre and Performance Workshop",
+      "yer_en": "Mardin",
+      "aciklama_en": ""
     }
   ]
 }

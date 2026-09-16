@@ -1,5 +1,6 @@
 ---
 title: Gerçeklere Yabancılaşma 1
+title_en: "Estrangement from Reality 1"
 yil: 2024
 sira: 6
 gorsel: /assets/eserler/gerceklere-yabancilasma-1.jpg

@@ -1,5 +1,6 @@
 ---
 title: Bahçe Yanılsaması
+title_en: "Garden Illusion"
 yil: 2025
 sira: 2
 gorsel: /assets/eserler/bahce-yanilsamasi.jpg

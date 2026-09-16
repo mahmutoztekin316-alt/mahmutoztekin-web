@@ -1,5 +1,6 @@
 ---
 title: Aidiyet Provası
+title_en: "Rehearsal of Belonging"
 yil: 2026
 sira: 1
 gorsel: /assets/eserler/aidiyet-provasi.jpg

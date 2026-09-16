@@ -1,0 +1,39 @@
+---
+layout: base.njk
+title: Mahmut Öztekin
+dil: en
+karsi: /
+permalink: /en/
+govde_sinifi: anasayfa
+gorsel: /assets/eserler/senin-bahcende-buyuyen-bir-yabaniyim.jpg
+---
+{% set dil = dil or "tr" %}{% set t = i18n[dil] %}
+{% set liste = [] %}
+{% for slug in anasayfa.eserler %}{% set e = collections.eserler | bul(slug) %}{% if e %}{% set liste = (liste.push(e), liste) %}{% endif %}{% endfor %}
+{% if liste.length %}
+<section class="kahraman" data-sure="{{ anasayfa.sure or 7 }}">
+  <div class="kahraman-gorsel">
+    {% for e in liste %}{% set b = e.data.title_en if (dil == "en" and e.data.title_en) else e.data.title %}
+    <a class="kahraman-eser{% if loop.first %} gorunur{% endif %}" href="{{ e | enUrl if dil == 'en' else e.url }}" {% if not loop.first %}aria-hidden="true" tabindex="-1"{% endif %}>
+      <img src="{{ e.data.gorsel }}" alt="{{ b }}, {{ e.data.yil }}"{% if not loop.first %} loading="lazy"{% endif %}>
+    </a>
+    {% endfor %}
+  </div>
+  <div class="kahraman-alt">
+    <div class="kunye-kisa-kutu">
+    {% for e in liste %}{% set b = e.data.title_en if (dil == "en" and e.data.title_en) else e.data.title %}
+    <p class="kunye-kisa{% if loop.first %} gorunur{% endif %}"><strong>{{ b }}</strong>, {{ e.data.yil }}<br>{{ e.data.teknik | teknikEn if dil == "en" else e.data.teknik }}{% set olc = {yukseklik: e.data.yukseklik, genislik: e.data.genislik, her_biri: e.data.her_biri} | olcu(dil) %}{% if olc %}, {{ olc }}{% endif %}</p>
+    {% endfor %}
+    </div>
+    <a class="git" href="{{ '/en/works/' if dil == 'en' else '/eserler/' }}">{{ anasayfa.buton_en if dil == 'en' else anasayfa.buton }} →</a>
+  </div>
+</section>
+{% if liste.length > 1 %}
+<script>
+(()=>{const k=document.querySelector('.kahraman');if(!k||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+const E=[...k.querySelectorAll('.kahraman-eser')],K=[...k.querySelectorAll('.kunye-kisa')];let i=0;
+setInterval(()=>{E[i].classList.remove('gorunur');K[i].classList.remove('gorunur');E[i].setAttribute('aria-hidden','true');E[i].tabIndex=-1;
+i=(i+1)%E.length;E[i].classList.add('gorunur');K[i].classList.add('gorunur');E[i].removeAttribute('aria-hidden');E[i].tabIndex=0;},(+k.dataset.sure||7)*1000);})();
+</script>
+{% endif %}
+{% endif %}

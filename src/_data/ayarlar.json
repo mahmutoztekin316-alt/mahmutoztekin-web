@@ -10,42 +10,58 @@
     {
       "ad": "Hakkında",
       "adres": "/hakkinda/",
-      "goster": true
+      "goster": true,
+      "ad_en": "About",
+      "adres_en": "/en/about/"
     },
     {
       "ad": "Eserler",
       "adres": "/eserler/",
-      "goster": true
+      "goster": true,
+      "ad_en": "Works",
+      "adres_en": "/en/works/"
     },
     {
       "ad": "Sergiler",
       "adres": "/sergiler/",
-      "goster": true
+      "goster": true,
+      "ad_en": "Exhibitions",
+      "adres_en": "/en/exhibitions/"
     },
     {
       "ad": "Metin",
       "adres": "/metin/",
-      "goster": true
+      "goster": true,
+      "ad_en": "Text",
+      "adres_en": "/en/text/"
     },
     {
       "ad": "Haberler",
       "adres": "/haberler/",
-      "goster": true
+      "goster": true,
+      "ad_en": "News",
+      "adres_en": "/en/news/"
     },
     {
       "ad": "İletişim",
       "adres": "/iletisim/",
-      "goster": true
+      "goster": true,
+      "ad_en": "Contact",
+      "adres_en": "/en/contact/"
     },
     {
       "ad": "Atölye",
       "adres": "/atolye/",
-      "goster": false
+      "goster": false,
+      "ad_en": "Studio",
+      "adres_en": "/en/studio/"
     },
     {
       "ad": "Basın",
       "adres": "/basin/",
-      "goster": false
+      "goster": false,
+      "ad_en": "Press",
+      "adres_en": "/en/press/"
     }
   ]
 }
