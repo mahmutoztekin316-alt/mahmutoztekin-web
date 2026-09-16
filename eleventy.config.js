@@ -3,7 +3,7 @@ const kacis = (s) => String(s ?? "").replace(/&/g,"&amp;").replace(/</g,"&lt;").
 const sayi = (n) => String(n).replace(".", ",");
 
 export default function (cfg) {
-  cfg.addPassthroughCopy({ "src/assets": "assets" });
+  cfg.addPassthroughCopy({ "assets": "assets" });
   cfg.addPassthroughCopy({ "src/admin/index.html": "admin/index.html" });
   cfg.addPassthroughCopy({ "src/admin/config.yml": "admin/config.yml" });
   cfg.addPassthroughCopy({ "src/favicon.svg": "favicon.svg" });
