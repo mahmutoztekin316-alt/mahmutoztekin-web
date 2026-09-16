@@ -57,13 +57,13 @@ h2{font-weight:500}
 /* alt */
 .alt{flex:none}
 .alt .bant{margin:0 var(--kenar)}
-.alt .bant{height:16px;background:url("/assets/alt-bant.svg") repeat-x center/77px 16px;border-top:1px solid var(--kirmizi);border-bottom:1px solid var(--kirmizi)}
+.alt .bant{height:16px;background:url("/assets/alt-bant.svg") repeat-x left center/1830px 16px;border-top:1px solid var(--kirmizi);border-bottom:1px solid var(--kirmizi)}
 .alt-satir{display:flex;justify-content:space-between;flex-wrap:wrap;gap:2px 24px;padding:clamp(6px,1.4vh,14px) var(--kenar) max(clamp(8px,1.6vh,16px),env(safe-area-inset-bottom));font-size:12px;color:var(--gri)}
 @media (max-width:600px){
   .alt-satir span:first-child{display:none}
   body{font-size:15px}
   .metin p,.uzun p{font-size:15px;line-height:1.55}
-  .alt .bant{height:12px;background-size:58px 12px}
+  .alt .bant{height:12px;background-size:1373px 12px}
 }
 
 /* ana sayfa */
@@ -72,7 +72,7 @@ h2{font-weight:500}
 .kahraman-eser{position:absolute;inset:0;display:flex;justify-content:center;opacity:0;transition:opacity 1.5s ease;pointer-events:none}
 .kahraman-eser.gorunur{opacity:1;pointer-events:auto}
 .kahraman-eser img{height:100%;width:auto;max-width:100%;object-fit:contain}
-.kunye-kisa-kutu{position:relative;min-height:2.6em;flex:1}
+.kunye-kisa-kutu{position:relative;min-height:2.6em;flex:1;min-width:0}
 .kunye-kisa{position:absolute;left:0;top:0;opacity:0;transition:opacity 1.5s ease}
 .kunye-kisa.gorunur{position:relative;opacity:1}
 @media (prefers-reduced-motion:reduce){.kahraman-eser,.kunye-kisa{transition:none}}
@@ -83,8 +83,8 @@ h2{font-weight:500}
 .kahraman.yanyana .kahraman-alt{display:none}
 .kahraman.yanyana .kunye-yan{margin-top:10px;font-size:14px;color:var(--gri)}
 @media (max-width:760px){.kahraman.yanyana .kahraman-gorsel{grid-template-columns:1fr;grid-template-rows:1fr 1fr}}
-.kahraman-alt{flex:none;display:flex;justify-content:space-between;align-items:flex-end;gap:6px 16px;flex-wrap:wrap;margin:clamp(10px,2vh,20px) auto 0;border-top:1px solid var(--cizgi);padding-top:clamp(8px,1.6vh,14px)}
-.kunye-kisa{margin:0;font-size:14px;color:var(--gri);white-space:nowrap}
+.kahraman-alt{flex:none;display:flex;justify-content:space-between;align-items:flex-start;gap:6px 16px;margin:clamp(8px,1.4vh,14px) 0 0;transition:margin-left .6s ease,width .6s ease}
+.kunye-kisa{margin:0;font-size:14px;color:var(--gri);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .kunye-kisa strong{color:var(--murekkep);font-weight:500}
 .git{text-decoration:none;font-weight:500}
 

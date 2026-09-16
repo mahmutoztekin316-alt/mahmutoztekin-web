@@ -20,7 +20,7 @@ gorsel: /assets/eserler/senin-bahcende-buyuyen-bir-yabaniyim.jpg
     </a>
     {% endfor %}
   </div>
-  <div class="kahraman-alt">
+  <div class="kahraman-alt" id="kahraman-alt">
     <div class="kunye-kisa-kutu">
     {% for e in liste %}{% set b = e.data.title_en if (dil == "en" and e.data.title_en) else e.data.title %}
     <p class="kunye-kisa{% if loop.first %} gorunur{% endif %}"><strong>{{ b }}</strong>, {{ e.data.yil }}<br>{{ e.data.teknik | teknikEn if dil == "en" else e.data.teknik }}{% set olc = {yukseklik: e.data.yukseklik, genislik: e.data.genislik, her_biri: e.data.her_biri} | olcu(dil) %}{% if olc %}, {{ olc }}{% endif %}</p>
@@ -37,4 +37,10 @@ setInterval(()=>{E[i].classList.remove('gorunur');K[i].classList.remove('gorunur
 i=(i+1)%E.length;E[i].classList.add('gorunur');K[i].classList.add('gorunur');E[i].removeAttribute('aria-hidden');E[i].tabIndex=0;},(+k.dataset.sure||7)*1000);})();
 </script>
 {% endif %}
+<script>
+(()=>{const g=document.querySelector('.kahraman-gorsel'),a=document.getElementById('kahraman-alt');if(!g||!a)return;
+const kahramanOlc=()=>{const e=g.querySelector('.kahraman-eser.gorunur img')||g.querySelector('img');if(!e)return;const r=e.getBoundingClientRect(),p=g.getBoundingClientRect();a.style.marginLeft=(r.left-p.left)+'px';a.style.width=r.width+'px';};
+addEventListener('resize',kahramanOlc);addEventListener('load',kahramanOlc);g.querySelectorAll('img').forEach(i=>i.addEventListener('load',kahramanOlc));
+new MutationObserver(kahramanOlc).observe(g,{attributes:true,subtree:true,attributeFilter:['class']});kahramanOlc();})();
+</script>
 {% endif %}
